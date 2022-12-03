@@ -1,0 +1,62 @@
+https://www.typescript-training.com/course/fundamentals-v3
+https://www.typescript-training.com/course/intermediate-v1
+https://mariusschulz.com/blog
+https://mariusschulz.com/blog/series/typescript-evolution
+https://blog.johnnyreilly.com/
+https://addyosmani.com/blog/
+https://github.com/ahejlsberg
+
+
+
+https://fettblog.eu/how-not-to-learn-typescript/
+https://fettblog.eu/typescript-typing-catch-clauses/
+https://github.com/ddprrt/typescript-workshop-july-2022
+
+
+https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/
+
+https://levelup.gitconnected.com/the-complete-guide-to-immutability-in-typescript-99154f859fdb
+the type DeepReadonly, implemented as part of the ts-essentials library. 
+https://gist.githubusercontent.com/grzpab/0952e2efdb731c970af90fb4f62b38ac/raw/17a6fbc264de6a957527b8212ba63f20cbd43416/immutability_readonly.ts
+
+
+
+https://developers.google.com/maps/documentation/javascript/using-typescript
+
+
+
+Matt Pocock  TypeScript
+https://github.com/total-typescript/beginners-typescript-tutorial
+https://github.com/total-typescript/advanced-typescript-workshop
+this is the best 2nd course after Stephen Grider's
+
+
+
+https://type-level-typescript.com/
+
+Bringing Pattern Matching to TypeScript - Introducing TS-Pattern v3.0
+https://dev.to/gvergnaud/bringing-pattern-matching-to-typescript-introducing-ts-pattern-v3-0-o1k
+https://medium.com/swlh/pattern-matching-in-typescript-with-record-and-wildcard-patterns-6097dd4e471d
+
+
+
+keyof operator
+
+
+
+indexed access type
+or lookup type
+https://www.typescript-training.com/course/intermediate-v1/08-indexed-access-types/
+https://dd.engineering/blog/indexed-access-types-lookup-types-in-typescript
+
+
+Readonly mapped type
+readonly
+
+
+
+TypeScript mapped type 
+https://betterprogramming.pub/typescript-a-gentle-introduction-to-mapped-types-f65e45fa2598
+https://mariusschulz.com/blog/mapped-types-in-typescript
+
+https://blog.logrocket.com/mastering-mapped-types-typescript/
