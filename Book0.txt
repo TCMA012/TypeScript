@@ -1,0 +1,7 @@
+TypeScript in 50 Lessons
+Stefan Baumgartner
+Smashing Magazine
+Microsoft MVP
+https://fettblog.eu/
+https://github.com/ddprrt/
+book
