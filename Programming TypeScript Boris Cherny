@@ -1,0 +1,4 @@
+Programming TypeScript Boris Cherny
+Small typesafe assertion library, is()
+I need to write a function with the following requirements (Programming TypeScript book by B. Cherny, Chapter 4, exercise 5):
+https://codereview.stackexchange.com/questions/279351/small-typesafe-assertion-library-is

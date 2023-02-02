@@ -1,0 +1,71 @@
+How can I see the full expanded contract of a Typescript type?
+https://stackoverflow.com/questions/57683303/how-can-i-see-the-full-expanded-contract-of-a-typescript-type
+
+
+
+The quick info for a type displayed with IntelliSense often leaves something to be desired; you generally get a single representation for any given type, which may turn out to be too terse or even too verbose for your purposes. There are a few suggestions to make it more flexible (e.g., microsoft/TypeScript#25784 and microsoft/TypeScript#28508) so that users could expand/collapse type definitions in their IDEs. But I don't know if they will get acted on in the near or even far future, so let's not wait around for that.
+
+Here is a type alias I sometimes use to try to expand a type in the way you're talking about:
+
+// expands object types one level deep
+type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
+
+// expands object types recursively
+type ExpandRecursively<T> = T extends object
+  ? T extends infer O ? { [K in keyof O]: ExpandRecursively<O[K]> } : never
+  : T;
+
+Those use conditional type inference to "copy" a type T into a new type variable O and then an identity-like mapped type which iterates through the copied type's properties.
+
+The conditional type inference is conceptually a no-op, but it's used to distribute union types and to force the compiler to evaluate the "true" branch of the conditional (if you redefine Expand<T> without it, sometimes the compiler will just output the mapped type {[K in keyof RelevantType]: RelevantType[K]}, which is not what you want to see).
+
+The difference between Expand and ExpandRecursively is whether it should just spit out the property types as-is (Expand), or if it should expand the property types (ExpandRecursively). It helps in the recursive case not to try to drill down into primitive types, so that's why T extends object condition is included.
+
+Okay, let's see what happens when we use it on your type. We don't need ExpandRecursively in your case, but we could use it... it gives the same result:
+
+type ExpandedText = Expand<Text>;
+
+which, when we hover over it in the IDE (The TypeScript Playground and VSCode anyway), is displayed as:
+
+/* type ExpandedText = {
+  name: string;
+  type: "text";
+  value: string;
+  title: string;
+  start: number;
+  extras: object;
+ } */
+
+ =
+
+Just supplementing jcalz's answer with versions which work with functions.
+
+To test, I'm adding a subobject key to Text type, and adding a function interface:
+
+type Text = Decorated &
+  Injected & {
+    name: string;
+    type: "text";
+    value: string;
+    subobject: Injected;
+  };
+
+interface SomeFunction {
+  (...args: Text[]): Injected & { error: boolean };
+}
+
+The modified helpers:
+
+export type Expand<T> = T extends (...args: infer A) => infer R
+  ? (...args: Expand<A>) => Expand<R>
+  : T extends infer O
+  ? { [K in keyof O]: O[K] }
+  : never;
+
+export type ExpandRecursively<T> = T extends (...args: infer A) => infer R
+  ? (...args: ExpandRecursively<A>) => ExpandRecursively<R>
+  : T extends object
+  ? T extends infer O
+    ? { [K in keyof O]: ExpandRecursively<O[K]> }
+    : never
+  : T;

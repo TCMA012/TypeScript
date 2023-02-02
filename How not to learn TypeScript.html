@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://fettblog.eu/how-not-to-learn-typescript/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>How not to learn TypeScript</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="dodgerblue">
+<meta name="description" content="“TypeScript and I are never going to be friends”. Oh wow, how often have I heard this phrase? Learning TypeScript, even in 2022, can be frustrating it seems. And for so many different reasons. People who write Java or C# and find out things are working differently than they should. Folks who have done JavaScript most of their time and are being screamed at by a compiler. Here are some mistakes I’ve seen people do when getting started with TypeScript. I hope they’re helpful to you!">
+<meta name="keywords" content="Web, Web Ops, DevOps, Performance, Front-End, JavaScript, CSS">
+
+<link rel="stylesheet" href="./How not to learn TypeScript_files/main.css">
+
+<link rel="alternate" type="application/rss+xml" title="front-end technology talk » Updates" href="https://fettblog.eu/feed.xml">
+
+<link rel="pingback" href="https://webmention.io/fettblog.eu/xmlrpc">
+<link rel="webmention" href="https://webmention.io/fettblog.eu/webmention">
+<link rel="apple-touch-icon" sizes="57x57" href="https://fettblog.eu/icon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://fettblog.eu/icon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://fettblog.eu/icon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://fettblog.eu/icon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://fettblog.eu/icon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://fettblog.eu/icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://fettblog.eu/icon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://fettblog.eu/icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://fettblog.eu/icon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://fettblog.eu/icon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fettblog.eu/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://fettblog.eu/icon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fettblog.eu/icon/favicon-16x16.png">
+<link rel="manifest" href="https://fettblog.eu/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://fettblog.eu/how-not-to-learn-typescript/">
+<link rel="preconnect" href="https://srv.carbonads.net/">
+<link rel="preconnect" href="https://cdn4.buysellads.net/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How not to learn TypeScript">
+<meta name="twitter:creator" content="@ddprrt">
+<meta name="monetization" content="$ilp.uphold.com/mXAJXfdGjypW">
+<meta property="og:image" content="https://fettblog.eu/teasers/how-not-to-learn-typescript.jpg">
+<meta property="og:image:secure_url" content="https://fettblog.eu/teasers/how-not-to-learn-typescript.jpg">
+<meta name="twitter:image" content="https://fettblog.eu/teasers/how-not-to-learn-typescript.jpg">
+<script id="_carbonads_projs" type="text/javascript" src="./How not to learn TypeScript_files/CE7DT2JM.json"></script></head>
+<body>
+<nav class="nav">
+<a class="logo" href="https://fettblog.eu/">fettblog.eu</a>
+<ul class="navbar">
+<li class="navbar-item"><a class="navbar-link active" href="https://fettblog.eu/articles/">Articles</a></li>
+<li class="navbar-item"><a class="navbar-link" href="https://fettblog.eu/guides/">Guides</a></li>
+<li class="navbar-item"><a class="navbar-link" href="https://fettblog.eu/books/">Books</a></li>
+<li class="navbar-item"><a class="navbar-link" href="https://fettblog.eu/slides/">Slides</a></li>
+<li class="navbar-item"><a class="navbar-link" href="https://fettblog.eu/about/">About</a></li>
+</ul>
+<button class="navbar-button" id="open">Menu</button>
+<button class="navbar-button" id="close">Close</button>
+</nav>
+<article class="wrapper h-entry">
+<div class="bg">
+<div class="preamble main-frame">
+<span class="breadcrumbs"><a href="https://fettblog.eu/">Home</a><a href="https://fettblog.eu/articles">Articles</a></span>
+<h1>How not to learn TypeScript</h1>
+<div class="meta meta-grow" data-modified="Mon, 10 Jan 2022 00:00:00 GMT">
+<div class="meta-item">
+<div class="meta-image-wrapper">
+<img loading="lazy" class="author-image" alt="Stefan Baumgartner" src="./How not to learn TypeScript_files/me.jpg">
+</div>
+</div>
+<p class="meta-item post-date">Published on <span class="meta-highlight">January 10, 2022</span></p>
+<p class="meta-item">
+Written by <span class="meta-highlight"><a class="" href="https://twitter.com//ddprrt">@ddprrt</a></span>
+</p>
+<p class="meta-item post-date">Reading time: <span class="meta-highlight">15 minutes</span></p>
+<p class="meta-item">
+More on <span class="meta-highlight">
+<a href="https://fettblog.eu/archive/typescript">TypeScript</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="grid main-frame article padded">
+<div class="happy-stefan">
+<script async="" src="./How not to learn TypeScript_files/carbon.js" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JWFTSIE27LF6SLYKQNCEADVK37FTBITZ3JCYBDEK7UCTSD427KC6BD65QJCVSIP53YCW7DP5QMCKAD6KQJHEYIK23YFTYIT53ECTNCYBZ52K?segment=placement:fettblogeu;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./How not to learn TypeScript_files/1609783186-authentic-260x200-variation-2.jpg" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JWFTSIE27LF6SLYKQNCEADVK37FTBITZ3JCYBDEK7UCTSD427KC6BD65QJCVSIP53YCW7DP5QMCKAD6KQJHEYIK23YFTYIT53ECTNCYBZ52K?segment=placement:fettblogeu;" class="carbon-text" target="_blank" rel="noopener sponsored">Your new development career awaits. Check out the latest listings.</a></span><a href="http://carbonads.net/?utm_source=fettblogeu&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+</div>
+<div class="e-content">
+<p>“TypeScript and I are never going to be friends”. Oh wow, how often have I heard <em>this</em> phrase? Learning TypeScript, even in 2022, can be frustrating it seems. And for so many different reasons. People who write Java or C# and find out things are working differently than they should. Folks who have done JavaScript most of their time and are being screamed at by a compiler. Here are some mistakes I’ve seen people do when getting started with TypeScript. I hope they’re helpful to you!</p>
+<p>This article has been very much influenced by Denys’ <a href="https://dystroy.org/blog/how-not-to-learn-rust/">How not to learn Rust</a> which I can highly recommend.</p>
+<h2 id="mistake-1%3A-ignore-javascript">Mistake 1: Ignore JavaScript <a class="direct-link" href="https://fettblog.eu/how-not-to-learn-typescript/#mistake-1%3A-ignore-javascript">#</a></h2>
+<p>TypeScript is a superset of JavaScript and has been advertised like this ever since. What this means is that JavaScript is very much part of the language. All of it. Choosing TypeScript does not give you a free card to ditch JavaScript and its erratic behavior. But TypeScript makes it easier to understand it. And you can see JavaScript breaking through everywhere.</p>
+<p>See my blog post on <a href="https://fettblog.eu/typescript-typing-catch-clauses/">error handling</a> for example. It would be very reasonable to allow catching for an error like you’re used to from other programming languages:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">try</span> <span class="token punctuation">{</span><br>  <span class="token comment">// something with Axios, for example</span><br><span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token operator">:</span> AxiosError<span class="token punctuation">)</span> <span class="token punctuation">{</span><br><span class="token comment">//         ^^^^^^^^^^ Error 1196 💥</span><br><span class="token punctuation">}</span></code></pre>
+<p>But this is not possible. And the reason is because of how JavaScript errors work (check the respective article for more details). Code that would make sense in TypeScript, but isn’t doable in JavaScript.</p>
+<p>Another example, using <code>Object.keys</code> and expecting simple property access is also something you would expect, but will cause problems.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Person</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><br><span class="token keyword">declare</span> <span class="token keyword">const</span> me<span class="token operator">:</span> Person<span class="token punctuation">;</span><br><br>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><br>  <span class="token comment">// 💥 the next line throws red squigglies at us</span><br>  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>There is a way to patch this behavior as <a href="https://fettblog.eu/typescript-better-object-keys/">detailled here</a>, but this patch can’t be applied to each and every scenario. TypeScript just can’t guarantee based on your code that the types for this property access will be the ones you’d expect. Code that runs perfectly fine in JavaScript alone, but which is hard to express with the type system for so many reasons.</p>
+<p>If you’re learning TypeScript with no JavaScript background whatsoever, start learning to differentiate between JavaScript and the type system. Also, learn to search for the right things. Named parameters in functions. You can do that with objects as arguments. A nice pattern. It’s part of JavaScript, though. Conditional chaining? Implemented in the TypeScript compiler first, but it’s also a JavaScript feature. Classes and extending existing classes? JavaScript. Private class fields? You know, the ones with the <code>#</code> in front of them, a little fence so nobody can access what’s behind it. Also JavaScript.</p>
+<p>Program code that actually <em>does</em> something is most of the time in the JavaScript camp. If you are using types to express intent and contracts, you’re in type land.</p>
+<p>Recently the TypeScript website has a much clearer statement on what it means to use TypeScript: <em>TypeScript is JavaScript with syntax for types</em>. It’s right here. TypeScript <em>is</em> JavaScript. Understanding JavaScript is key to understanding TypeScript.</p>
+<h2 id="mistake-2%3A-annotate-everything">Mistake 2: Annotate everything <a class="direct-link" href="https://fettblog.eu/how-not-to-learn-typescript/#mistake-2%3A-annotate-everything">#</a></h2>
+<p>A type annotation is a way to explicitly tell which types to expect. You know, the stuff that was very prominent in other programming languages, where the verbosity of <code>StringBuilder stringBuilder = new StringBuilder()</code> makes sure that you’re really, really dealing with a <code>StringBuilder</code>. The opposite is type inference, where TypeScript tries to figure out the type for you. <code>let a_number = 2</code> is of type <code>number</code>.</p>
+<p>Type annotations are also the most obvious and visible syntax difference between TypeScript and JavaScript.</p>
+<p>When you start learning TypeScript, you might want to annotate everything to express the types you’d expect. This might feel like the obvious choice when starting with TypeScript, but I implore you to use annotations sparingly and let TypeScript figure out types for you. Why? Let me explain what a type annotation actually is.</p>
+<p><strong>A type annotation is a way for you to express where contracts have to be checked.</strong> If you add a type annotation to a variable declaration, you tell the compiler to check if types match during the assignment.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Person</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span><br>  age<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">const</span> me<span class="token operator">:</span> Person <span class="token operator">=</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>If <code>createPerson</code> returns something that isn’t compatible with <code>Person</code>, TypeScript will error. Do this is if you really want to be sure that you’re dealing with the right type here.</p>
+<p>Also, from that moment on, <code>me</code> is of type <code>Person</code>, and TypeScript will treat it as a <code>Person</code>. If there are more properties in <code>me</code>, e.g. a <code>profession</code>, TypeScript won’t allow you to access them. It’s not defined in <code>Person</code>.</p>
+<p>If you add a type annotation to a function signature’s return value, you tell the compiler to check if types match the moment you return that value.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Person <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Stefan"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">39</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>If I return something that doesn’t match <code>Person</code>, TypeScript will error. Do this if you want to be completely sure that you return the correct type. This especially comes in handy if you are working with functions that construct big objects from various sources.</p>
+<p>If you add a type annotation to a function signature’s parameters, you tell the compiler to check if types match the moment you pass along arguments.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token function">printPerson</span><span class="token punctuation">(</span>person<span class="token operator">:</span> Person<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">,</span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br><span class="token function">printPerson</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span></code></pre>
+<p>This is in my opinion the most important, and unavoidable type annotation. Everything else can be inferred.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Person</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span><br>  age<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// Inferred!</span><br><span class="token comment">// return type is { name: string, age: number }</span><br><span class="token keyword">function</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <br>  <span class="token keyword">return</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Stefan"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">39</span><span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// Inferred!</span><br><span class="token comment">// me is type of { name: string, age: number}</span><br><span class="token keyword">const</span> me <span class="token operator">=</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <br><br><span class="token comment">// Annotated! You have to check if types are compatible</span><br><span class="token keyword">function</span> <span class="token function">printPerson</span><span class="token punctuation">(</span>person<span class="token operator">:</span> Person<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">,</span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// All works</span><br><span class="token function">printPerson</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span> </code></pre>
+<p>Always use type annotations with function parameters. This is where you <em>have to</em> check your contracts. This is not only a lot more convenient, it also comes with a ton of benefits. You get e.g. polymorphism for free.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">type</span> <span class="token class-name">Person</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span><br>  age<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">type</span> <span class="token class-name">Studying</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  semester<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">type</span> <span class="token class-name">Student</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span><br>  age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span><br>  semester<span class="token operator">:</span> <span class="token builtin">number</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <br>  <span class="token keyword">return</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">"Stefan"</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">39</span><span class="token punctuation">,</span> semester<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span> id<span class="token operator">:</span> <span class="token string">"XPA"</span><span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">printPerson</span><span class="token punctuation">(</span>person<span class="token operator">:</span> Person<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">,</span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">studyForAnotherSemester</span><span class="token punctuation">(</span>student<span class="token operator">:</span> Studying<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  student<span class="token punctuation">.</span>semester<span class="token operator">++</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">isLongTimeStudent</span><span class="token punctuation">(</span>student<span class="token operator">:</span> Student<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> student<span class="token punctuation">.</span>age <span class="token operator">-</span> student<span class="token punctuation">.</span>semester <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">&gt;</span> <span class="token number">30</span> <span class="token operator">&amp;&amp;</span> student<span class="token punctuation">.</span>semester <span class="token operator">&gt;</span> <span class="token number">20</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">const</span> me <span class="token operator">=</span> <span class="token function">createPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <br><br><span class="token comment">// All work!</span><br><span class="token function">printPerson</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span><br><span class="token function">studyForAnotherSemester</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span><br><span class="token function">isLongTimeStudent</span><span class="token punctuation">(</span>me<span class="token punctuation">)</span></code></pre>
+<p><code>Student</code>, <code>Person</code> and <code>Studying</code> have some overlap, but are unrelated to each other. <code>createPerson</code> returns something that is compatible with all three types. If we’d have annotated too much, we would need to create a lot more types and a lot more checks than necessary, without any benefit.</p>
+<p>When learning TypeScript, not relying too much on type annotations also gives you a really good feel of what it means to work with a structural type system.</p>
+<h2 id="mistake-3%3A-mistake-types-for-values">Mistake 3: Mistake types for values <a class="direct-link" href="https://fettblog.eu/how-not-to-learn-typescript/#mistake-3%3A-mistake-types-for-values">#</a></h2>
+<p>TypeScript is a super-set of JavaScript, which means it adds more things to an already existing and defined language. Over time you learn to spot which parts are JavaScript, and which parts are TypeScript.</p>
+<p>It really helps to see TypeScript as this additional layer of types upon regular JavaScript. A thin layer of meta-information, which will be peeled off before your JavaScript code runs in one of the available runtimes. Some people even speak about TypeScript code “erasing to JavaScript” once compiled.</p>
+<p>TypeScript being this layer on top of JavaScript also means that different syntax contributes to different layers. While a <code>function</code> or <code>const</code> creates a name in the JavaScript part, a <code>type</code> declaration or an <code>interface</code> contributes a name in the TypeScript layer. E.g.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// Collection is in TypeScript land! --&gt; type</span><br><span class="token keyword">type</span> <span class="token class-name">Collection<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  entries<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// printCollection is in JavaScript land! --&gt; value</span><br><span class="token keyword">function</span> <span class="token function">printCollection</span><span class="token punctuation">(</span>coll<span class="token operator">:</span> Collection<span class="token operator">&lt;</span><span class="token builtin">unknown</span><span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">...</span>coll<span class="token punctuation">.</span>entries<span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>We also say that names or declarations contribute either a <em>type</em> or a <em>value</em>. Since the type layer is on top of the value layer, it’s possible to consume values in the type layer, but not vice versa. We also have explicit keywords for that.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// a value</span><br><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token string">"Stefan"</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// a type</span><br><span class="token class-name"><span class="token keyword">type</span></span> Person <span class="token operator">=</span> <span class="token keyword">typeof</span> person<span class="token punctuation">;</span></code></pre>
+<p><code>typeof</code> creates a name available in the type layer from the value layer below.</p>
+<p>It gets irritating when there are declaration types that create both types and values. Classes for instance can be used in the TypeScript layer as a type, as well as in JavaScript as a value.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// declaration</span><br><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><br><br>  <span class="token function">constructor</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> n<br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// value</span><br><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Stefan"</span><span class="token punctuation">)</span><br><br><span class="token comment">// type</span><br><span class="token class-name"><span class="token keyword">type</span></span> PersonCollection <span class="token operator">=</span> Collection<span class="token operator">&lt;</span>Person<span class="token operator">&gt;</span><br><br><span class="token keyword">function</span> <span class="token function">printPersons</span><span class="token punctuation">(</span>coll<span class="token operator">:</span> PersonCollection<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">//...</span><br><span class="token punctuation">}</span></code></pre>
+<p>And naming conventions trick you. Usually, we define classes, types, interfaces, enums, etc. with a capital first letter. And even if they may contribute values, they for sure contribute types. Well, until you write uppercase functions for your React app, at least.</p>
+<p>If you’re used to using names as types and values, you’re going to scratch your head if you suddenly get a good old <em>TS2749: ‘YourType’ refers to a value, but is being used as a type</em> error.</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">type</span> <span class="token class-name">PersonProps</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  name<span class="token operator">:</span> <span class="token builtin">string</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token operator">:</span> PersonProps<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><br><span class="token punctuation">}</span><br><br><span class="token keyword">type</span> <span class="token class-name">Collection<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  entries<span class="token operator">:</span> <span class="token constant">T</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">type</span> <span class="token class-name">PrintComponentProps</span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  collection<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>Person<span class="token operator">&gt;</span> <span class="token comment">// ERROR! </span><br>  <span class="token comment">// 'Person' refers to a value, but is being used as a type</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is where TypeScript can get really confusing. What is a type, what is a value, why do we need to separate this, why doesn’t this work like in other programming languages? Suddenly, you see yourself confronted with <code>typeof</code> calls or even the <code>InstanceType</code> helper type, because you realize that classes <a href="https://fettblog.eu/typescript-interface-constructor-pattern/">actually contribute two types</a> (shocking!).</p>
+<p>So it’s good to understand what contributes types, and what contributes value. What are the boundaries, how and in which direction can we move, and what does this mean for your typings? This table, adapted from the TypeScript docs, sums it up nicely:</p>
+<table>
+<thead>
+<tr>
+<th>Declaration type</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+</tr>
+<tr>
+<td>Enum</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>Type Alias</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>Function</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+</tr>
+<tr>
+<td>Variable</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+</tr>
+</tbody>
+</table>
+<p>When learning TypeScript, it’s probably a good idea to focus on functions, variables, and simple type aliases (or interfaces, if that’s more your thing). This should give you a good idea about what happens in the type layer, and what happens in the value layer.</p>
+<h2 id="mistake-4%3A-going-all-in-in-the-beginning">Mistake 4: Going all-in in the beginning <a class="direct-link" href="https://fettblog.eu/how-not-to-learn-typescript/#mistake-4%3A-going-all-in-in-the-beginning">#</a></h2>
+<p>We’ve spoken a lot about what mistakes somebody can make coming to TypeScript from a different programming language. To be fair, this has been my bread and butter for quite a while. But there’s also a different trajectory: People who have written plenty of JavaScript, suddenly being confronted with another, sometimes very annoying tool.</p>
+<p>This can lead to very frustrating experiences. You know your codebase like the back of your hand, suddenly a compiler is telling you that it doesn’t understand things left and right and that you’ve made mistakes even though you know that your software will work.</p>
+<p>And you wonder how everyone can even like this bugger. TypeScript is supposed to help you be productive, but then all it does is throw distracting, red squigglies under your code.</p>
+<p>We’ve all been there, haven’t we?</p>
+<p>And I can relate to that! TypeScript can be very loud, especially if you “just switch it on” in an existing JavaScript codebase. TypeScript wants to get a sense of your entire application, and this requires you to annotate everything so contracts align. How cumbersome.</p>
+<p>If you come from JavaScript, I’d say you should make use of TypeScript’s gradual adoption features. TypeScript has been designed to make it as easy for you to just adopt a little bit, before going all-in:</p>
+<ol>
+<li>Take parts of your application and move them to TypeScript, rather than moving everything. TypeScript has JavaScript interoperability (<code>allowJS</code>)</li>
+<li>TypeScript emits compiled JavaScript code even when TypeScript finds errors in your code. You have to turn off code emitting explicitly using the <code>noEmitOnError</code> flag. This allows you to still ship even though your compiler screams at you</li>
+<li>Use TypeScript by writing type declaration files and importing them via <a href="https://fettblog.eu/typescript-jsdoc-superpowers/">JSDoc</a>. This is a good first step in getting more information on what’s happening inside your codebase.</li>
+<li>Use any everywhere it would be too overwhelming or too much effort. Contrary to popular beliefs, <a href="https://fettblog.eu/typescript-any-is-ok/">using any is absolutely ok</a>, as long as it is used explicitly</li>
+</ol>
+<p>Check out the <a href="https://www.typescriptlang.org/tsconfig"><code>tsconfig</code> reference</a> to see which configuration flags are available. TypeScript has been designed for gradual adoption. You can use as many types as you like. You can leave big parts of your application in JavaScript, and this should definitely help you get started.</p>
+<p>When learning TypeScript as a JavaScript developer, don’t ask too much from yourself. Try to use it as inline documentation to reason better about your code, and extend/improve upon that.</p>
+<h2 id="mistake-5%3A-learn-the-wrong-typescript">Mistake 5: Learn the wrong TypeScript <a class="direct-link" href="https://fettblog.eu/how-not-to-learn-typescript/#mistake-5%3A-learn-the-wrong-typescript">#</a></h2>
+<p>Again, very inspired by <a href="https://dystroy.org/blog/how-not-to-learn-rust/">How not to learn Rust</a>. If your code needs to use one of the following keywords, you’re probably either in the wrong corner of TypeScript, or much further than you want to be:</p>
+<ul>
+<li><code>namespace</code></li>
+<li><code>declare</code></li>
+<li><code>module</code></li>
+<li><code>&lt;reference&gt;</code></li>
+<li><code>abstract</code></li>
+<li><code>unique</code></li>
+</ul>
+<p>This doesn’t mean that those keywords don’t contribute something very important and are necessary for a variety of use-cases. When learning TypeScript, you don’t want to work with them at the beginning, though.</p>
+<p>And that’s it! I’m curious on how you learned TypeScript and what obstacles you hit when starting out. Also, do you know of other things that might be common mistakes when learning TypeScript? Let me know! I’m eager to hear your stories.</p>
+<div class="widget connect">
+<div class="box blue">
+<p>
+🐦 <a href="https://twitter.com/ddprrt">Got a comment? Need help? Shoot a tweet!</a>
+</p>
+</div>
+<div class="box red">
+<p>
+☕️ <a href="https://paypal.me/ddprrt">
+Was this helpful? Leaving a small tip helps me a lot!</a>
+</p>
+</div>
+</div>
+</div>
+<aside class="sidebar">
+<section class="sidebar-element">
+<a class="sidebar-book-cover-link" target="_blank" rel="noopener" href="https://typescript-book.com/">
+<img loading="lazy" width="220" height="285" src="./How not to learn TypeScript_files/typescript-in-50-lessons-tiny-min.jpg" alt="Cover of Front-End Tooling" class="book-cover sidebar-book-cover">
+</a>
+<p class="sidebar-book-content">
+I've written a book on TypeScript!
+Check out <a target="_blank" rel="noopener" href="https://typescript-book.com/">
+TypeScript in 50 Lessons</a>, published by Smashing Magazine
+</p>
+</section>
+<section class="gadgets sticky">
+<button aria-pressed="false" class="button-toggle" id="button-toggle-tldr" data-toggle="tldr">
+TL/DR
+<span class="button-toggle-slider">
+<span aria-hidden="true" class="button-toggle-on">🏃‍♀️</span>
+<span aria-hidden="true" class="button-toggle-off">🚶‍♀️</span>
+</span>
+</button>
+<button aria-pressed="false" class="button-toggle" id="button-toggle-confetti" data-toggle="confetti">
+Celebrate
+<span class="button-toggle-slider">
+<span aria-hidden="true" class="button-toggle-on">🎉</span>
+<span aria-hidden="true" class="button-toggle-off">🎉</span>
+</span>
+</button>
+</section>
+</aside>
+</div>
+</article>
+<section class="main-frame article-teasers">
+<h2 class="sr-only">More articles on <a href="https://fettblog.eu/archive/typescript">TypeScript</a></h2>
+<article class="teaser-row">
+<div class="teaser teaser-more">
+<div class="teaser-content">
+<div class="breadcrumbs">
+<p class="meta-item post-date"><span class="teaser-highlight">January 31, 2022</span></p>
+</div>
+<h3 class="teaser-heading h2">
+<a href="https://fettblog.eu/slides/the-typescript-converging-point/">The TypeScript converging point</a>
+</h3>
+<div class="meta">
+<p class="meta-item post-date"><span class="meta-highlight">46</span> slides</p>
+</div>
+</div>
+<div class="action-bar">
+<a class="read-more" href="https://fettblog.eu/slides/the-typescript-converging-point/">Read more <span class="sr-only"> on The TypeScript converging point</span></a>
+</div>
+</div>
+<div class="teaser teaser-more">
+<div class="teaser-content">
+<div class="breadcrumbs">
+<p class="meta-item post-date"><span class="teaser-highlight">December 15, 2021</span></p>
+</div>
+<h3 class="teaser-heading h2">
+<a href="https://fettblog.eu/slides/typescript-masterclass/">The TypeScript Masterclass</a>
+</h3>
+<div class="meta">
+<p class="meta-item post-date"><span class="meta-highlight">104</span> slides</p>
+</div>
+</div>
+<div class="action-bar">
+<a class="read-more" href="https://fettblog.eu/slides/typescript-masterclass/">Read more <span class="sr-only"> on The TypeScript Masterclass</span></a>
+</div>
+</div>
+<div class="teaser teaser-more">
+<div class="teaser-content">
+<div class="breadcrumbs">
+<p class="meta-item post-date"><span class="teaser-highlight">November 30, 2021</span></p>
+</div>
+<h3 class="teaser-heading h2">
+<a href="https://fettblog.eu/typescript-function-overload/">The humble function overload</a>
+</h3>
+<div class="meta">
+<p class="meta-item post-date">Reading time: <span class="meta-highlight">19 minutes</span></p>
+</div>
+</div>
+<div class="action-bar">
+<a class="read-more" href="https://fettblog.eu/typescript-function-overload/">Read more <span class="sr-only"> on TypeScript: The humble function overload</span></a>
+</div>
+</div>
+</article>
+</section>
+<div class="callout">
+<div class="newsletter-widget">
+<h2>Stay up to date!</h2>
+<p class="e-content">
+3-4 updates per month, <strong>no tracking</strong>, spam-free, hand-crafted. Our newsletter gives you links, updates on fettblog.eu, conference talks, coding soundtracks, and much more.
+</p>
+<form action="https://buttondown.email/api/emails/embed-subscribe/oida" method="post" target="popupwindow" onsubmit="window.open(&#39;https://buttondown.email/oida&#39;, &#39;popupwindow&#39;)" class="ection mail-subscribe-form" novalidate="">
+<label class="sr-only" for="bd-email">Enter your email</label>
+<input type="email" name="email" id="bd-email" class="required email" placeholder="Enter your e-Mail">
+<input type="hidden" value="1" name="embed">
+<button type="submit" class="button"><span aria-hidden="true" class="effect">✏️</span> Subscribe</button>
+</form>
+</div>
+</div>
+<div class="footer-area">
+<div class="main-frame">
+<section class="copyright">fettblog.eu © <!-- -->2012 - 2022</section>
+<section class="footer-nav">
+<nav class="footer-nav-item">
+<strong class="footer-head">fettblog.eu</strong>
+<a href="https://fettblog.eu/" class="footer-link">Home</a>
+<a class="footer-link" href="https://fettblog.eu/about/">About</a>
+<a class="footer-link" href="https://fettblog.eu/legal-notice/">Legal notice</a>
+<a class="footer-link" href="https://fettblog.eu/faq/">FAQ</a>
+</nav>
+<nav class="footer-nav-item">
+<strong class="footer-head">Connect</strong>
+<a class="footer-link" href="https://fettblog.eu/speaking/">Speaking</a>
+<a href="https://fettblog.eu/newsletter/" class="footer-link">Newsletter</a>
+<a href="https://twitter.com/ddprrt" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+<a href="https://github.com/ddprrt" class="footer-link" target="_blank" rel="noopener noreferrer">Github</a>
+</nav>
+<nav class="footer-nav-item">
+<strong class="footer-head">Side projects</strong>
+<a href="https://scriptconf.org/" class="footer-link" target="_blank" rel="noopener noreferrer">ScriptConf</a>
+<a href="https://tsconf.eu/" class="footer-link" target="_blank" rel="noopener noreferrer">TSConf:EU</a>
+<a href="https://rust-linz.at/" class="footer-link" target="_blank" rel="noopener noreferrer">Rust Linz</a>
+<a href="https://workingdraft.de/" class="footer-link" target="_blank" rel="noopener noreferrer">Working Draft Podcast</a>
+</nav>
+<nav class="footer-nav-item">
+<strong class="footer-head">Outlets</strong>
+<a class="footer-link" href="https://fettblog.eu/feed.xml">RSS Feed</a>
+</nav>
+</section>
+</div>
+</div>
+<script>
+const nav = document.querySelector('.nav')
+
+const movieSidebar = document.querySelector('.movie-list')
+const activeCinema = document.querySelector('a[href*=cinema].active')
+
+const cineTop = sessionStorage.getItem('cinemaPos')
+
+document.querySelector('#open').addEventListener('click', function(e) {
+  e.preventDefault()
+  nav.classList.add('active')
+})
+
+document.querySelector('#close').addEventListener('click', function(e) {
+  e.preventDefault()
+  nav.classList.remove('active')
+})
+
+
+window.addEventListener('beforeunload', () => {
+  if(activeCinema && movieSidebar) {
+    sessionStorage.setItem('cinemaPos', movieSidebar.scrollTop)
+  } else {
+    sessionStorage.setItem('cinemaPos', 0)
+  }
+})
+
+if(cineTop && movieSidebar) {
+  movieSidebar.scrollTop = parseInt(cineTop, 10)
+}  
+</script>
+<script>
+
+const version = 19;
+
+function register() {
+  navigator.serviceWorker.register(`/pwabuilder-sw.js?v=19`, {
+    scope: '/'
+  }).then(function(reg) {
+    console.log('Service worker has been registered for scope:', reg.scope);
+  });
+}
+
+function unregister() {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    let available = false;
+    for(let registration of registrations) {
+      if (registration.active && registration.active.scriptURL.endsWith("v=" + version)) {
+        available = true
+      } else {
+        registration.unregister()
+      }
+    }
+
+    if (!available) {
+      //register();
+    }
+  })
+}
+
+if('serviceWorker' in navigator) {
+  unregister()
+}
+</script>
+<script src="./How not to learn TypeScript_files/main.js" async=""></script>
+<script defer="" src="./How not to learn TypeScript_files/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon="{&quot;rayId&quot;:&quot;6f51091b7bec54a9&quot;,&quot;version&quot;:&quot;2021.12.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;33ffecadaafa4c4b9b53317127166508&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+
+</body></html>

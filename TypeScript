@@ -1,16 +1,24 @@
+https://www.zhenghao.io/posts/type-programming
+https://www.zhenghao.io/posts/type-hierarchy-tree
 https://www.typescript-training.com/course/fundamentals-v3
 https://www.typescript-training.com/course/intermediate-v1
 https://mariusschulz.com/blog
 https://mariusschulz.com/blog/series/typescript-evolution
+https://blog.thoughtspile.tech/2023/01/23/typescript-sets/
 https://blog.johnnyreilly.com/
 https://addyosmani.com/blog/
 https://github.com/ahejlsberg
+
+https://devblogs.microsoft.com/typescript/announcing-typescript-5-0-beta/
 
 
 
 https://fettblog.eu/how-not-to-learn-typescript/
 https://fettblog.eu/typescript-typing-catch-clauses/
 https://github.com/ddprrt/typescript-workshop-july-2022
+https://fettblog.eu/slides/typescript-masterclass/
+https://fettblog.eu/slides/
+https://fettblog.eu/variadic-tuple-types-preview/
 
 
 https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/
@@ -37,6 +45,7 @@ https://type-level-typescript.com/
 Bringing Pattern Matching to TypeScript - Introducing TS-Pattern v3.0
 https://dev.to/gvergnaud/bringing-pattern-matching-to-typescript-introducing-ts-pattern-v3-0-o1k
 https://medium.com/swlh/pattern-matching-in-typescript-with-record-and-wildcard-patterns-6097dd4e471d
+https://github.com/gvergnaud/ts-pattern
 
 
 
@@ -60,3 +69,22 @@ https://betterprogramming.pub/typescript-a-gentle-introduction-to-mapped-types-f
 https://mariusschulz.com/blog/mapped-types-in-typescript
 
 https://blog.logrocket.com/mastering-mapped-types-typescript/
+
+https://dev.to/attila_vecerek/the-either-monad-3ooc
+
+https://dev.to/tmhao2005/ts-useful-advanced-types-3k5e
+
+https://dev.to/1solation/common-types-in-typescript-part-1-5f9l
+
+
+https://www.jmalvarez.dev/posts/bridge-pattern-typescript
+https://github.com/josemiguel-alvarez/design-patterns-typescript/blob/main/structural-paterns/bridge.ts
+
+
+
+https://dev.to/kirkcodes/scripting-with-vscode-tasks-and-typescript-38h7
+https://github.com/lukeed/tsm
+
+https://dev.to/milos192/error-handling-with-the-either-type-2b63
+
+https://github.com/basarat/typescript-book

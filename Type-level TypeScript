@@ -1,0 +1,22 @@
+Type-level TypeScript is an online course
+https://type-level-typescript.com/
+https://github.com/gvergnaud
+
+Generics, Conditional Types, Mapped Types or even Recursive Types
+Generics should use TitleCase: type List<a> = ...
+Type parameters should use camelCase: type List<first, restOfTheList> = ...
+Inferred types (local variables), should use camelCase as well: type GetName<input> = input extends { name: infer name } ? ...
+https://github.com/gvergnaud/type-level-typescript-workshop
+https://codesandbox.io/s/github/gvergnaud/type-level-typescript-workshop?file=/00-introduction/exercises.ts
+
+
+
+Collection of TypeScript type challenges with online judge
+tsch.js.org
+https://github.com/type-challenges/type-challenges
+
+
+The exhaustive Pattern Matching library for TypeScript, with smart type inference
+https://github.com/gvergnaud/ts-pattern
+
+Gabriel Vergnaud

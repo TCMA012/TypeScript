@@ -1,0 +1,24 @@
+Deep Clone an Object and Preserve its Type with TypeScript
+From Shallow Copy to Deep Clone with Type
+https://javascript.plainenglish.io/deep-clone-an-object-and-preserve-its-type-with-typescript-d488c35e5574
+TypeScript deepCopy 
+
+recursive deep clone function supports Date data type, keeps the original object class constructor and methods in its prototype chain.
+A new object is instantiated with the source object prototype, and reduce operator is used to recursively copy each property over.
+
+=
+
+spread - shallow copy
+Object.assign - shallow copy
+
+JSON.stringify/parse only work with Number and String and Object literal without function or Symbol properties.
+JSON method has troubles with circular dependencies.
+Lodash cloneDeep work with all types, function and Symbol are copied by reference.
+Lodash offers two different functions that allow you to do shallow copies and deep copies. These are clone and cloneDeep
+Lodash | _.cloneDeep() 
+
+https://github.com/erikvullings/deep-copy-ts
+
+
+
+https://github.com/sasaplus1/deepcopy.js
