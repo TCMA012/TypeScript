@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/52423842/what-is-not-assignable-to-parameter-of-type-never-error-in-typescript
+What is "not assignable to parameter of type never" error in TypeScript?
+
+const result : string[] = [];

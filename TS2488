@@ -1,0 +1,96 @@
+/*
+Type 'Observable<unknown>' must have a '[Symbol.iterator]()' method that returns an iterator.ts(2488)
+TypeScript 2488 Type 'Observable<unknown>' must have a '[Symbol.iterator]()' method that returns an iterator
+TS2488 Type 'Observable<unknown>' must have a '[Symbol.iterator]()' method that returns an iterator
+TS2488 Type 'Observable<>' must have a '[Symbol.iterator]()' method that returns an iterator
+
+https://typescript.tv/errors/#TS2488
+
+*/
+
+const months: {
+  [month: number]: string;
+} = {
+  1: 'January',
+  2: 'February',
+};
+
+//Broken Code ❌
+for (const month of months) {
+  console.log(month);
+}
+
+//Fixed Code ✔️ 
+Object.entries(months).forEach(month => {
+  console.log(month);
+});
+
+
+
+const tableItem: TableItem = {
+  tab1: {
+      field1: 'fieldValue'
+  },
+  tab2: [{
+      field2: 'fieldValue'
+  }]
+}
+
+//Broken Code ❌
+const iterate = (entry: TableItem) => {
+  for (const tabId of Object.keys(entry)) {
+      if (Array.isArray(entry[tabId])) {
+          for (const idx of entry[tabId]) {
+              for (const fieldId of Object.keys(entry[tabId][idx])) {
+                  console.log(fieldId)
+              }
+          }
+      } else {
+          for (const fieldId of Object.keys(entry[tabId])) {
+              console.log(fieldId)
+          }
+      }
+  }
+}
+
+//Fixed Code ✔️ 
+//You need to cast it to TableItemBody[].
+const iterate = (entry: TableItem) => {
+    for (const tabId of Object.keys(entry)) {
+        if (Array.isArray(entry[tabId])) {
+            const tableItems = entry[tabId] as TableItemBody[]
+            for (const tableItem of tableItems) {
+                for (const fieldId of Object.keys(tableItem)) {
+                    console.log(fieldId)
+                }
+            }
+        } else {
+            for (const fieldId of Object.keys(entry[tabId])) {
+                console.log(fieldId)
+            }
+        }
+    }
+}
+
+
+
+
+
+/*
+this.admins is now an observable, and you cannot iterate over an observable, you will have to subscribe to it. or move the for loop logic inside:
+*/
+export interface Admin{
+}
+
+  map(actions => actions.map(a=>{
+       var data = a.payload.doc.data() as Admin;
+       const id = a.payload.doc.id; 
+
+        //====> you have access to all items of here
+
+        return {id,...data}
+   }))
+
+//Or subscribe to it like so:
+
+this.admins.subscribe(admins => console.log(admins));
