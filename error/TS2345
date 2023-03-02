@@ -1,0 +1,32 @@
+https://typescript.tv/errors/TS2345
+
+error TS2345: Argument of type ‘number‘ is not assignable to parameter of type ‘TimerHandler‘.
+
+Broken Code ❌
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+setTimeout(add(1000, 337), 5000);
+
+Fixed Code ✔️
+
+There is a mismatch in the expected arguments of a function. The setTimeout function expects the first argument to be a callback function and not the returned value (in this case a number) of a function call:
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+setTimeout(() => add(1000, 337), 5000);
+
+
+
+
+Error: src/app/heroes/heroes.container.ts:19:5 - error TS2345: Argument of type 'Observable<Hero[]>' is not assignable to parameter of type 'Observable<Observable<Hero[]>>'.
+  Type 'Hero[]' is missing the following properties from type 'Observable<Hero[]>': source, operator, lift, subscribe, and 2 more.
+
+TS2345: Argument of type 'Observable<H[]>' is not assignable to parameter of type 'Observable<Observable<H[]>>'.
+
+
+

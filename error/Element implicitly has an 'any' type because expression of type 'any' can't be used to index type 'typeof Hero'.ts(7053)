@@ -1,0 +1,156 @@
+Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'typeof Hero'.ts(7053)
+Hero[]
+
+
+
+https://stackoverflow.com/questions/57086672/element-implicitly-has-an-any-type-because-expression-of-type-string-cant-b
+Element implicitly has an 'any' type because expression of type 'string' can't be used to index
+
+
+
+specify that the 'expression of type string' is a key of the type of that object.
+
+const someObj:ObjectType = data;
+const field = 'username';
+
+// This gives an error
+const temp = someObj[field];
+
+// Solution 1: When the type of the object is known
+const temp = someObj[field as keyof ObjectType]
+
+// Solution 2: When the type of the object is not known
+const temp = someObj[field as keyof typeof someObj]
+
+=
+
+Object.keys(this)
+    .forEach(key => {
+      console.log(this[key as keyof MyClass]);
+    });
+
+TS recognizes that the key is something that this actually has. In fact, we can even get rid of the class name and use this instead like 
+
+this[key as keyof this]
+
+=
+
+// bad
+const _getKeyValue = (key: string) => (obj: object) => obj[key];
+
+// better
+const _getKeyValue_ = (key: string) => (obj: Record<string, any>) => obj[key];
+
+// best
+const getKeyValue = <T extends object, U extends keyof T>(key: U) => (obj: T) => obj[key];
+
+Bad - the reason for the error is the object type is just an empty object by default. Therefore it isn't possible to use a string type to index {}.
+
+Better - the reason the error disappears is because now we are telling the compiler the obj argument will be a collection of string/value (string/any) pairs. However, we are using the any type, so we can do better.
+
+Best - T extends empty object. U extends the keys of T. Therefore U will always exist on T, therefore it can be used as a look up value.
+
+Here is a full example:
+
+I have switched the order of the generics (U extends keyof T now comes before T extends object) to highlight that order of generics is not important and you should select an order that makes the most sense for your function.
+
+const getKeyValue = <U extends keyof T, T extends object>(key: U) => (obj: T) =>
+  obj[key];
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const user: User = {
+  name: "John Smith",
+  age: 20
+};
+
+const getUserName = getKeyValue<keyof User, User>("name")(user);
+
+// => 'John Smith'
+
+Alternative Syntax
+
+const getKeyValue = <T, K extends keyof T>(obj: T, key: K): T[K] => obj[key];
+
+=
+
+try to access plotOptions property using string name. TypeScript understands that name may have any value, not only property name from plotOptions. So TypeScript requires to add index signature to plotOptions, so it knows that you can use any property name in plotOptions. But I suggest to change type of name, so it can only be one of plotOptions properties.
+
+interface trainInfo {
+    name: keyof typeof plotOptions;
+    x: Array<number>;
+    y: Array<number>;
+    type: string;
+    mode: string;
+}
+
+Now you'll be able to use only property names that exist in plotOptions.
+
+You also have to slightly change your code.
+
+First assign array to some temp variable, so TS knows array type:
+
+const plotDataTemp: Array<trainInfo> = [
+    {
+      name: "train_1",
+      x: data.filtrationData.map((i: any) => i["1-CumVol"]),
+      y: data.filtrationData.map((i: any) => i["1-PressureA"]),
+      type: "scatter",
+      mode: "lines"
+    },
+    // ...
+}
+
+Then filter:
+
+const plotData = plotDataTemp.filter(({ name }) => plotOptions[name]);
+
+If you're getting data from API and have no way to type check props at compile time the only way is to add index signature to your plotOptions:
+
+type tplotOptions = {
+    [key: string]: boolean
+}
+
+const plotOptions: tplotOptions = {
+    train_1: true,
+    train_2: true,
+    train_3: true,
+    train_4: true
+}
+
+=
+
+interface IObjectKeys {
+  [key: string]: string | number;
+}
+
+interface IDevice extends IObjectKeys {
+  id: number;
+  room_id: number;
+  name: string;
+  type: string;
+  description: string;
+}
+
+NOTE: "[key: string]" 
+An object in JavaScript is primarily just a collection of properties made up of key-value pairs. Moreover, the key can only be a string (even for array elements), but the value can be any data type.
+
+If you use the optional property in your object:
+
+interface IDevice extends IObjectKeys {
+  id: number;
+  room_id?: number;
+  name?: string;
+  type?: string;
+  description?: string;
+}
+
+... you should add 'undefined' value into the IObjectKeys interface:
+
+interface IObjectKeys {
+  [key: string]: string | number | undefined;
+}
+

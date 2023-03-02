@@ -1,0 +1,39 @@
+Error: src/app/app.container.html:1:1 - error NG8001: 'app-root-ui' is not a known element:
+1. If 'app-root-ui' is an Angular component, then verify that it is part of this module.
+2. If 'app-root-ui' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+error NG8001: 'app-root-ui' is not a known element:
+If '' is an Angular component, then verify that it is part of this module.
+
+
+
+Your MyComponentComponent should be in MyComponentModule.
+
+And in MyComponentModule, you should place the MyComponentComponent inside the "exports".
+
+Something like this, see code below.
+
+@NgModule({
+   imports: [],
+   exports: [MyComponentComponent],
+   declarations: [MyComponentComponent],
+   providers: [],
+})
+
+export class MyComponentModule {
+}
+
+and place the MyComponentModule in the imports in app.module.ts like this (see code below).
+
+import { MyComponentModule } from 'your/file/path';
+
+@NgModule({
+   imports: [MyComponentModule]
+   declarations: [AppComponent],
+   providers: [],
+   bootstrap: [AppComponent]
+})
+
+export class AppModule {}
+
+
