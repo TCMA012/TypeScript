@@ -1,0 +1,19 @@
+Option type for TypeScript
+https://borischerny.com/typescript/javascript/%22functional/programming%22/scala/haskell/2017/07/14/Options-in-TypeScript.html
+
+appdir="programming-typescript/tsoption"
+
+github="https://github.com/bcherny/tsoption"
+
+cd /media/tcma/SeagateBackupPlusDrive
+
+mkdir TypeScript/$appdir && cd "$_"
+
+
+curl -OL $github/archive/master.zip
+
+? unzip *.zip -d $appdir
+unzip *.zip 
+
+rm *.zip
+

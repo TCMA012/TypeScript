@@ -1,0 +1,39 @@
+Get the type info of hovering cursor in Typescript Playground
+https://stackoverflow.com/questions/74133237/get-the-type-info-of-hovering-cursor-in-typescript-playground
+
+When I hover my cursor over a Typescript type in Playground, its type info is displayed correctly.
+This suggests that the compiler parses the source codes correctly and generates my desired output.
+However, .D.TS does not get (display) the same full expanded Typescript type info.
+How to get (or generate) the same type info displayed by a cursor hover in Playground?
+Do the Typescript compiler has an option to get (or generate) the same type info?
+
+e.g.
+```
+type SecondArg<F> = F extends (a: any, b: infer B) => any ? B : never
+// Get the type of Array.slice
+type F = typeof Array['prototype']['slice']
+type A = SecondArg<F> // number | undefined
+```
+.D.TS show:
+```
+declare type A = SecondArg<F>;
+```
+My desired output is:
+```
+declare type A = number | undefined;
+```
+I tried this, but it does not get the full expanded Typescript type info in .D.TS.
+```
+//https://stackoverflow.com/questions/57683303/how-can-i-see-the-full-expanded-contract-of-a-typescript-type
+type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
+type ExpandedA = Expand<A>;
+```
+
+https://www.typescriptlang.org/play?#code/C4TwDgpgBAyhDGB7AdgEwIICcDmAeAYgHxQC8U+UEAHsBGgM5QAUAhgFxQvIgA0UARhwCWyAGYRMUAEIBKUsS4goAfmlQOyCADcJAWABQAekNQA4hGBRgAC2ihIURKKhZMLEADp6AGyHwIBvbQFGRBTi6YbiAA2gDkYJiIwEngELEAunE+fmnpgakupLAIKBg4BMQGBsbWwMBg9GzG9MAs8ADWiDqYot6IAO4eSAC2hgCOAK4QLUIo9IYArADsAGwAHADMGwAMG4bWAwC08FyHQof0EBCHNteiE97eh9RgXKgQqMcowG7wwIdOQ4sG6pejwTBCMD-IL5BwAUSorzQuAAKsQyCjKDQ6KhGCJxJIAPIqKAAbyg0QA0lARFB2hAQOFCekOISqekoABfdRQTTdADcsOgCKR7wwRRFb1w6EI-KAA
+
+Please note that this is a follow up question of:
+https://stackoverflow.com/questions/74073919/get-the-full-expanded-typescript-type-info-in-typescript-playground-d-ts
+
+
+
+typescript-playground typescript-compiler-api 

@@ -1,0 +1,8 @@
+ORM
+Object–relational mapping
+https://typeorm.io/
+https://github.com/typeorm/typeorm
+TypeScript and JavaScript support
+Supports MySQL / MariaDB / Postgres / CockroachDB / SQLite / Microsoft SQL Server / Oracle / SAP Hana / sql.js.
+Supports MongoDB NoSQL database.
+Works in NodeJS / Browser / Ionic / Cordova / React Native / NativeScript / Expo / Electron platforms.

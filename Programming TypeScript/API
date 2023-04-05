@@ -1,0 +1,16 @@
+Typesafe API
+Client and Server share a common schema (data model) / operations
+Code Generation for APIs
+
+REST
+generate documentation, API clients and server stubs in different languages by parsing your OpenAPI / Swagger definition.
+https://github.com/swagger-api/swagger-codegen
+
+
+GraphQL
+https://www.the-guild.dev/graphql/codegen
+https://github.com/apollographql/apollo-tooling
+
+
+RPC
+https://grpc.io/
