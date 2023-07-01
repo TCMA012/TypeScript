@@ -1,0 +1,10 @@
+https://www.totaltypescript.com/the-empty-object-type-in-typescript
+The Empty Object Type in TypeScript
+
+The empty object type
+{}
+Instead of representing an empty object, it represents any value except null and undefined.
+This is because TypeScript's type system is structural, not nominal. Everything except null and undefined is an object, so everything can be assigned to an empty object.
+
+If you want to represent an empty object, use Record<string, never> instead.
+
