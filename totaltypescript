@@ -8,3 +8,64 @@ This is because TypeScript's type system is structural, not nominal. Everything 
 
 If you want to represent an empty object, use Record<string, never> instead.
 
+
+https://www.totaltypescript.com/immediately-indexed-mapped-type
+
+https://www.totaltypescript.com/where-to-put-your-types-in-application-code
+
+https://www.totaltypescript.com/how-to-test-your-types
+
+https://www.totaltypescript.com/testing-with-typescript-is-painful-heres-a-solution
+https://github.com/total-typescript/shoehorn
+
+https://www.totaltypescript.com/function-types-are-weird-in-typescript
+
+
+
+preserving the literal types of objects passed to your functions
+const myFunc = <const T>(input: T) => {
+  return input;
+};
+const result = myFunc({ foo: "bar" }); // { readonly foo: "bar" }
+
+
+Remove strings containing a substring from a union
+type ObjectKey = 'userId' | 'postId' | 'userName' | 'postName'
+type PostKey = Exclude<ObjectKey, `${string}${'user'}${string}`> // 'postName' | 'postId'
+
+Remove strings with one of several possible values from a union
+type ObjectKey = 'userId' | 'postId' | 'id' | 'userName' | 'postName'
+type NonIdKey = Exclude<ObjectKey, `${string}${'id' | 'Id'}${string}`> // 'postName' | 'userName'
+
+
+
+
+https://www.totaltypescript.com/clarifying-the-satisfies-operator
+satisfies infers the narrowest possible type, not the wider type you specify:
+const routes = {
+  "/": {},
+  "/users": {},
+  "/admin/users": {},
+} satisfies Record<string, {}>;
+// Property 'awdkjanwdkjn' does not exist on type
+// '{ "/": {}; "/users": {}; "/admin/users": {}; }'
+routes.awdkjanwdkjn;
+
+
+https://www.totaltypescript.com/writing-string-replace-in-typescript
+
+https://www.totaltypescript.com/dont-use-function-keyword-in-typescript
+
+
+
+https://www.totaltypescript.com/tutorials/beginners-typescript
+https://github.com/total-typescript/beginners-typescript-tutorial
+11-record.solution.1.ts
+12-typeof-narrowing.problem
+
+
+
+https://github.com/total-typescript/typescript-generics-workshop
+
+
+
