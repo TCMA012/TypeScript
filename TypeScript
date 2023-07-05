@@ -71,6 +71,7 @@ https://betterprogramming.pub/typescript-a-gentle-introduction-to-mapped-types-f
 https://mariusschulz.com/blog/mapped-types-in-typescript
 
 https://blog.logrocket.com/mastering-mapped-types-typescript/
+https://blog.logrocket.com/level-up-typescript-record-types/
 
 https://dev.to/attila_vecerek/the-either-monad-3ooc
 
@@ -116,4 +117,10 @@ https://dev.to/maksimovicdanijel/typescript-utility-types-i-use-the-most-5d5n
 https://dev.to/logrocket/level-up-your-typescript-with-record-types-1lc3
 
 https://dev.to/tylim88/typescript-nominal-type-the-right-way-k9j
+
+https://dmitripavlutin.com/typescript-record/
+https://dmitripavlutin.com/typescript-index-signatures/
+
+https://itnext.io/use-typescript-record-types-for-better-code-ce1768c6cb53
+
 
