@@ -1,0 +1,12 @@
+Joe Previte
+https://joeprevite.com/blog/
+https://github.com/typescript-course/typescript-from-scratch-tutorial
+
+Phil Nash
+https://philna.sh/blog/
+https://github.com/philnash
+
+Simona Cotin
+manager @angular
+https://cfe.dev/sessions/jamdev2022-localhost-vscode/
+https://github.com/simonaco
