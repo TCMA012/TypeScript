@@ -1,0 +1,11 @@
+TypeScript iterable iterator
+ 
+https://inspirnathan.com/posts/23-iterators-iterables-and-generators/
+the square brackets around the property name, "Symbol.iterator," is known as a computed property name. This lets us use dots/periods inside the property name. Additionally, we can insert variables or evaluate expressions to generate dynamic property names.
+
+an @@iterator method is identical to the Symbol.iterator method. 
+The @@ symbols are used to denote common symbols in the official ECMAScript specification.
+
+
+
+https://patrickdesjardins.com/blog/understand-typeScript-iterator-and-iterable

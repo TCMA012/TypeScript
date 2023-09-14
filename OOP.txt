@@ -1,0 +1,28 @@
+https://chrlschn.medium.com/weve-been-teaching-object-oriented-programming-all-wrong-part-1-e171f57aa209
+the check for a valid data is now owned by the object itself
+the constructor to normalize the data
+
+https://medium.com/codex/structural-control-flow-with-object-oriented-programming-part-2-7d18526146de
+the Strategy Pattern in combination with a variant of the Factory Pattern to encapsulate our rules
+
+
+
+https://chrlschn.medium.com/on-code-comments-49e40b2ec27e
+Poor comments are worse than no comments
+Write comments at the level of the code’s intent
+If you find anything that isn’t obvious from the code itself, put it into a comment
+Add a link to the relevant reference
+
+
+
+explaining a business/domain constraint
+explaining why a compromise or technical decision was made
+there may be downstream technical constraints on a different subsystem that a piece of code must account for
+
+
+
+three types of “links”:
+1. Links to reference documentation
+2. A link to an issue in a tracking system or at least an issue identifier so a future traveler can find the additional background and decision making around a piece of code. For example See issue #3456 for more context.
+3. A link to where the code was sourced from. If the code is taken from some reference documentation or from a Stackoverflow post, it can be helpful to provide a link or reference for additional context. For example: See: https://stackoverflow.com/... for discussion and options.
+

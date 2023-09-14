@@ -1,0 +1,2 @@
+type library
+https://millsp.github.io/ts-toolbelt/

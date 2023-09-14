@@ -1,0 +1,48 @@
+The TypeScript programming language
+
+https://www.typescriptlang.org/
+
+
+02 - Next Gen: TypeScript Module
+
+https://confluence.isvcs.net/display/devcen/02+-+Next+Gen%3A+TypeScript+Module
+
+May 21, 2019 
+
+https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+To learn the TypeScript Language we will be using TypeScript Handbook and Pluralsight. The following below will outline the sections you should complete. When completing the tutorials you can use the TypeScript Playground or  Repl.it (enter "TypeScript" and select the editor) if you want to try things as you go.
+a) Introduction 
+Pluralsight Module:
+Course: Typescript Fundamentals
+Module: "Getting Started with TypeScript"
+b) Fundamentals
+Pluralsight Module:
+Course: Typescript Fundamentals
+Module: "Typing, Variables, and Functions"
+TypeScript Handbook
+Read the following sections:
+Basic Types
+Variable Declarations
+Functions
+Type Inference
+c) Classes and Intefaces
+Pluralsight Module:
+Course: Typescript Fundamentals
+Module: "Classes and Interfaces"
+TypeScript Handbook
+Read the following sections:
+Classes
+Interfaces
+Generics
+Enums
+d) Modules
+Pluralsight Module:
+Course: Typescript Fundamentals
+Module: "Modules"
+TypeScript Handbook:
+Read the following sections:
+Modules
+Module Resolution
+
+

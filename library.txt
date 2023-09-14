@@ -1,0 +1,93 @@
+The type-fest package contains only types, meaning they are only used at compile-time and nothing is ever compiled into actual JavaScript code. 
+"typescript": "^5.0.4"
+https://github.com/sindresorhus/type-fest
+https://github.com/sindresorhus/type-fest/blob/main/source/partial-deep.d.ts
+https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
+
+
+
+Additional types and types adjusted utilities
+Upgrade TypeScript from 5.0.4 to 5.1
+More than 200 type utilities
+typescript": "~5.0.4"
+https://github.com/unional/type-plus
+https://unional.github.io/type-plus/
+
+
+
+The ts-extras package contains functions that are compiled into JavaScript code and used at runtime.
+typescript": "^4.7.4"
+https://github.com/sindresorhus/ts-extras
+
+
+
+Higher-Order TypeScript (HOTScript)
+composable functions for the type-level
+Transform TypeScript types using functions.
+typescript": "^4.9.5"
+https://github.com/gvergnaud/hotscript
+
+
+
+Pattern Matching library
+https://github.com/gvergnaud/ts-pattern
+Pattern matching syntax for ECMAScript
+Stage 1
+https://github.com/tc39/proposal-pattern-matching
+
+
+
+https://github.com/type-challenges/type-challenges
+typescript": "^4.7.4"
+
+
+
+type guards
+https://github.com/sniptt-official/guards
+typescript": "4.3.5"
+
+
+
+typescript": "^4.4.2"
+https://github.com/devinrhode2/ObjectTyped
+
+
+
+TypeScript's largest type utility library
+https://github.com/millsp/ts-toolbelt
+https://millsp.github.io/ts-toolbelt/
+typescript@^4.1.0
+typescript": "latest"
+eslint": "^7.18.0"
+npx": "^10.2.0"
+ts-node": "^9.1.0"
+tslib": "^2.1.0"
+
+
+
+useful TypeScript types
+typescript": ">=4.1.0"
+https://github.com/ts-essentials/ts-essentials
+
+
+
+driven by industry use cases
+Many of the exposed types are a very thin layer above built in functionality. The goal is to provide all of the building blocks necessary to make concise, yet complex types.
+typescript": ">=2.8.0"
+https://github.com/andnp/SimplyTyped
+
+
+
+TypeScript's built-in typings are not perfect.
+ts-reset smooths over these hard edges, just like a CSS reset does in the browser.
+https://github.com/total-typescript/ts-reset
+
+
+
+parsing and serializing for TypeScript that preserves type information
+https://github.com/JohnWeisz/TypedJSON
+
+
+
+Generate Algebraic Data Types and pattern matchers
+https://github.com/pfgray/ts-adt

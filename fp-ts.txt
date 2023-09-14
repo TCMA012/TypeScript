@@ -1,0 +1,11 @@
+https://paulgray.net/the-state-monad/
+The State monad
+A thorough guide to fp-ts's State monad.
+September 18, 2019
+javascript typescript state monad functional programming
+How do we manage a value that may change over time in a pure, functional application? Let’s start with a simple example; pseudo random number generators.
+
+Pure Random Number Generator
+
+
+The State monad from the fp-ts library generalizes this pattern, which means it makes it possible to use with any type of state (not just number).

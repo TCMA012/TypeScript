@@ -1,0 +1,4 @@
+Code branching with Conditional Types
+https://type-level-typescript.com/conditional-types
+"A extends B" means "Is A assignable to B?"
+"A is assignable to B" means that the set of values defined by the type B includes the set of values defined by the type A.

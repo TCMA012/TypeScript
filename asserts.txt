@@ -1,0 +1,6 @@
+typescript "asserts"
+Assertion function
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-7/#assertion-functions
+https://mariusschulz.com/blog/assertion-functions-in-typescript#implementing-an-assertion-function
+https://stackoverflow.com/questions/71624824/what-does-the-typescript-asserts-operator-do
+https://blog.logrocket.com/assertion-functions-typescript/

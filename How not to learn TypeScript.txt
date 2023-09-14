@@ -1,0 +1,11 @@
+How not to learn TypeScript
+https://fettblog.eu/how-not-to-learn-typescript/
+If your code needs to use one of the following keywords, you’re probably either in the wrong corner of TypeScript, or much further than you want to be:
+
+namespace
+declare
+module
+<reference>
+abstract
+unique
+This doesn’t mean that those keywords don’t contribute something very important and are necessary for a variety of use-cases. When learning TypeScript, you don’t want to work with them at the beginning, though.

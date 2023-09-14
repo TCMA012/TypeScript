@@ -1,0 +1,4 @@
+https://medium.com/ngconf/filtering-types-with-correct-type-inference-in-rxjs-f4edf064880d
+johncrowson.com
+Filtering Types with Correct Type Inference in RxJs
+User-Defined Type Guard

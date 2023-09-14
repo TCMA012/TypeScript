@@ -1,0 +1,1 @@
+--noUnusedLocals compiler option and the ts-prune tool from Nadeesha Cabral.

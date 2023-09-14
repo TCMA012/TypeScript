@@ -1,0 +1,21 @@
+TypeScript Tuple
+https://timmousk.com/blog/typescript-tuple/
+https://type-level-typescript.com/arrays-and-tuples
+https://www.w3schools.com/typescript/typescript_tuples.php
+https://blog.logrocket.com/exploring-use-cases-typescript-tuples/
+https://mainawycliffe.dev/blog/tuple-type-in-typescript/
+https://catchts.com/tuples
+
+
+
+
+
+
+O[keyof O] to get the union of all values in an object type O
+T[number] do the same thing with tuples
+
+
+
+Variadic tuple types
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types
+https://github.com/microsoft/TypeScript/pull/39094

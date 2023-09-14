@@ -1,0 +1,88 @@
+Type 'string' is not assignable to type 'never'
+How to fix "Type 'string' is not assignable to type 'never'"?
+
+I'm trying to get a new object/type from the other one, but get a Type 'string' is not assignable to type 'never' error
+
+const Flags = {
+  ONE: () => 'one',
+  TWO: () => 'two',
+  // ...
+};
+
+type createEnumType<T> = {[K in keyof T]: K};
+type FlagsObject = createEnumType<typeof Flags>;
+type FlagsKeys = keyof FlagsObject;
+
+const keys = Object.keys(Flags) as FlagsKeys[];
+let result = {} as FlagsObject;
+for (const key of keys) {
+  result[key] = key;// Type 'string' is not assignable to type 'never'
+}
+
+/*
+Expected value and type:
+result = {
+  ONE: "ONE";
+  TWO: "TWO";
+}
+*/
+
+
+
+
+the problem is that the expression result[key] has type never, which is a type with no values. Let's see why it happens:
+
+key has type 'ONE'|'TWO'
+result has type { 'ONE': 'ONE'; 'TWO': 'TWO' } hence:
+result['ONE'] has type 'ONE'
+result['TWO'] has type 'TWO'
+result[key] may sometime be result['ONE'] and sometimes be result['TWO']. If you want to assign something to it you have to choose a value that can be both. No value can be at the same time 'ONE' and 'TWO'.
+To do what you expect you have to type key more strongly but you cannot do that since you have to loop. I suggest you override the typing for result inside the loop so that the type is still strong outside:
+
+(result as Record<typeof key, typeof key>)[key] = key;
+
+=
+
+	Without defining the array type, it by default will be never:
+const result : string[] = [];
+
+	type of useState is an array of string
+const [items , setItems] = useState<string[]>([]); 
+
+
+
+	Within our if check, TypeScript sees typeof padding === "number" and understands that as a special form of code called a type guard.
+function padLeft(padding: number | string, input: string) {
+  if (typeof padding === "number") {
+    return " ".repeat(padding) + input;
+  }
+  return padding + input;
+}
+
+
+
+Either change the type of main to be keyof typeof weatherObj, 
+or
+use a type guard and write code to handle when the incoming value isn't one of those keys.
+
+
+
+
+only use string[] or number[] but not both.
+
+But if you need to support both strings and numbers, the easiest fix here is to use Array<string | number> instead of string[] | number[]: the single array type doesn't have the issue of trying to union together two .filter signatures.
+
+You can either change your state to be of that type:
+
+const [selectedProductIds, setSelectedProductIds] = useState<Array<string | number>>([]);
+This is simple, but has the downside that it will allow arrays of mixed strings and numbers, which may not be desirable. (e.g. setSelectProductIds(['0', 1, '2'])
+
+If not, you can temporarily cast to Array<string | number>, do the filter, then cast back to string[] | number[]. This is not super clean, but should be safe:
+
+setProductPrices(
+    (productPrices as Array<string | number>).filter((p): boolean => !selectedProductIds.includes(p.id)) as (string[] | number[])
+);
+
+
+
+const [selectedProductIds, setSelectedProductIds] = useState< (string|number)[]>([]);

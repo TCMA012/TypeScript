@@ -1,48 +1,82 @@
-/*
-https://javascript.plainenglish.io/typescript-infer-keyword-explained-76f4a7208cb0
-*/
-//If T is a sub-type of (infer R)[] , return R. Otherwise, return T”
-type UnpackArrayType<T> = T extends (infer R)[] ? R: T;
+//https://levelup.gitconnected.com/using-typescript-infer-like-a-pro-f30ab8ab41c7
+type T0 = string[];
+type T1 = () => string;
 
-//the condition in UnpackArrayType is true because number[] matches with (infer R)[]
-type t1 = UnpackArrayType<number[]>; // t1 is number
-
-//the condition in UnpackArrayType is false as the string type does not match with(infer R)[]
-type t2 = UnpackArrayType<string>; //t2 is string
+type UnpackedArray<T> = T extends (infer U)[] ? U : T
+type U0 = UnpackedArray<T0> // string
 
 
 
-type unboxFromPromise<T> = T extends Promise<infer R>? R : T;
-type t3 = Promise<string[]>;
-let promiseType : unboxFromPromise<t3>; // string[]
+type ArrayType<T> = T extends (infer Item)[] ? Item : T
+
+type item1 = ArrayType<number[]>; // number
+type item2 = ArrayType<{ name: string }>; //{ name: string }
+type ta = ArrayType<[string, number]> // string | number
+type ta2 = ArrayType<[string, number, boolean]> // string | number | boolean
 
 
 
-//return the function return type as R type variable if the type passed in matches a function signature.
-type functionReturn<T> = T extends (...args: string[]) => infer R ? R: T;
-type f1 = (a:string) => number;
-type returnType = functionReturn<f1>; // number
+type SpaceChar = ' ' | '\n' | '\t';
+type TrimLeft<S extends string> = S extends `${SpaceChar}${infer Rest}` ? TrimLeft<Rest> : S;
+type Str = TrimLeft<'    hello'>; // 'hello'
 
 
 
-/*
-multiple candidates for the same type variable in co-variant positions causes a union type to be inferred.
-When a type is inferred for several values, the result is a union type
-*/
-type unboxFromObject<T> = T extends {a: infer R; b: infer R} ? R: never;
-type r1 = unboxFromObject<{a: string; b: number}>; // string | number
+
+type First<T extends Array<any>> = T extends [infer F, ...infer Rest] ? F : never;
+type Str2 = First<['hello', 1, false]>; // 'hello'
 
 
 
-//multiple candidates for the same type variable in contra-variant positions causes an intersection type to be inferred.
-type unboxFromObjectFunctions<T> = T extends { a: (x: infer U) => void; b: (x: infer U) => void }? U: never;
-type r2= unboxFromObjectFunctions<{ a: (x: string) => void; b: (x: number) => void }>; // string & number ???
+type GetReturnType<T> = T extends (...args: unknown[]) => infer R
+  ? R
+  : never;
+type Num = GetReturnType<() => number>; // number
 
 
 
-//use infer with a recursive conditional type to flatten a nested array
-type Flatten<T extends readonly unknown[]> = T extends unknown[] ? _Flatten<T>[] : readonly _Flatten<T>[];
-type _Flatten<T> = T extends readonly (infer U)[] ? _Flatten<U> : T;
-declare function flatRecurisve<T extends readonly unknown[]>(xs: T): Flatten<T>;
-const t4 = flatRecurisve(['apple', ['orange', 'pear', 100],[[4, [true]]]] as const);
-// readonly (true | ‘apple’| ‘orange’| ‘pear’| 100 | 4)[]
+type Pear = 'Pear'
+type Apple = number
+
+type Flip<T> = T extends [infer A, infer B] ? [B, A] : never
+type Stairs = Flip<[Pear, Apple]>
+// => [Apple, Pear]
+
+type Union<T> = T extends [infer A, infer A] ? A : never
+type Stairsu = Union<[Apple, Pear]>
+// => Apple | Pear
+
+
+//https://alexharri.com/blog/build-schema-language-with-infer
+type Split<T> = T extends `${infer A};${infer B}`
+  ? [A, ...Split<B>]
+  : [T];
+
+type s4 = Split<`1;2;3;4`>; // [`1`, ...Split<`2;3;4`>]
+type s3 = Split<`2;3;4`>;   // [`2`, ...Split<`3;4`>]
+type s2 = Split<`3;4`>;     // [`3`, ...Split<`4`>]
+type s1 = Split<`4`>;       // [`4`]
+
+
+
+type Merge<T> = T extends [infer R, ...infer Rest]
+  ? R & Merge<Rest>
+  : {};
+
+type m3 = Merge<[{ a: 1 }, { b: 2 }, { c: 3 }]> // { a: 1 } & Merge<[{ b: 2 }, { c: 3 }]>
+type m2 = Merge<[{ b: 2 }, { c: 3 }]>           // { b: 2 } & Merge<[{ c: 3 }]>
+type m1 = Merge<[{ c: 3 }]>                     // { c: 3 } & Merge<[]>
+type m0 = Merge<[]>         
+
+
+type GetFirstArgumentOfAnyFunction<T> = T extends (
+    first: infer FirstArgument,
+    ...args: any[]
+) => any
+    ? FirstArgument
+    : never
+  
+type t = GetFirstArgumentOfAnyFunction<(name: string, age: number) => void> // string
+
+
+

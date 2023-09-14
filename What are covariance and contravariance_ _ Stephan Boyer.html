@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>What are covariance and contravariance? | Stephan Boyer</title>
+      <meta name="description" content="Subtyping is a tricky topic in programming language theory. The trickiness comes from a pair of frequently misunderstood phenomena called *covariance*..." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" media="all" href="/assets/application-ecb60523ca8bd22a2bbc5295c0fbff71e315183559315475a9bebb4b40dba043.css" />
+    <script src="/assets/application-9ce502bdf7264cc474ced9045744cd8c988a9fabd677cb4f7791286c8ab8e864.js"></script>
+    
+  </head>
+  <body>
+    <div id="footer-fix-container">
+      <div id="header">
+        <div class="container">
+          <div class="row">
+            <div id="nav" class="span8">
+              <a  href="/">Home</a><span class="hidden">
+              </span><a  href="/articles">Articles</a><span class="hidden">
+              </span><a  href="/projects">Projects</a><span class="hidden">
+              </span><a  href="/music">Music</a><span class="hidden">
+              </span><a  href="/about">About</a>
+            </div>
+            <div id="header-follow" class="span4 phone-hidden">
+              <a href="https://twitter.com/stepchowfun" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-dnt="true">Follow @stepchowfun</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-separator"> </div>
+
+      <div class="container" id="content">
+        <div class="row">
+          <div class="span12">
+            
+
+
+<div class="article">
+
+  <h2>
+      <a href="/post/132/what-are-covariance-and-contravariance">What are covariance and contravariance?</a>
+  </h2>
+
+    <div class="p muted">
+      July 21, 2017
+    </div>
+
+  <div class="p"><a href="https://en.wikipedia.org/wiki/Subtyping">Subtyping</a> is a tricky topic in programming language theory. The trickiness comes from a pair of frequently misunderstood phenomena called <em>covariance</em> and <em>contravariance</em>. This article will explain what these terms mean.</div>
+
+<div class="p">The following notation will be used:</div>
+
+<ul>
+<li><code>A ≼ B</code> means <code>A</code> is a subtype of <code>B</code>.</li>
+<li><code>A → B</code> is the type of functions for which the argument type is <code>A</code> and the return type is <code>B</code>.</li>
+<li><code>x : A</code> means <code>x</code> has type <code>A</code>.</li>
+</ul>
+
+<h3>A motivating question</h3>
+
+<div class="p">Suppose I have these three types:</div>
+
+<pre>Greyhound ≼ Dog ≼ Animal
+</pre>
+
+<div class="p">So <code>Greyhound</code> is a subtype of <code>Dog</code>, and <code>Dog</code> is a subtype of <code>Animal</code>. Subtyping is usually <a href="https://en.wikipedia.org/wiki/Transitive_relation">transitive</a>, so we&rsquo;ll say <code>Greyhound</code> is also a subtype of <code>Animal</code>.</div>
+
+<div class="p"><strong>Question:</strong> Which of the following types could be subtypes of <code>Dog → Dog</code>?</div>
+
+<ol>
+<li><code>Greyhound → Greyhound</code></li>
+<li><code>Greyhound → Animal</code></li>
+<li><code>Animal → Animal</code></li>
+<li><code>Animal → Greyhound</code></li>
+</ol>
+
+<div class="p">How do we answer this question? Let <code>f</code> be a function which takes a <code>Dog → Dog</code> function as its argument. We don&rsquo;t care about the return type. For concreteness, we can say <code>f : (Dog → Dog) → String</code>.</div>
+
+<div class="p">Now I want to call <code>f</code> with some function <code>g</code>. Let&rsquo;s see what happens when <code>g</code> has each of the four types above.</div>
+
+<div class="p"><strong>1. Suppose <code>g : Greyhound → Greyhound</code>. Is <code>f(g)</code> type safe?</strong></div>
+
+<div class="p">No, because <code>f</code> might try to call its argument (<code>g</code>) with a different subtype of <code>Dog</code>, like a <code>GermanShepherd</code>.</div>
+
+<div class="p"><strong>2. Suppose <code>g : Greyhound → Animal</code>. Is <code>f(g)</code> type safe?</strong></div>
+
+<div class="p">No, for the same reason as (1).</div>
+
+<div class="p"><strong>3. Suppose <code>g : Animal → Animal</code>. Is <code>f(g)</code> type safe?</strong></div>
+
+<div class="p">No, because <code>f</code> might call its argument (<code>g</code>) and then try to make the return value bark. Not every <code>Animal</code> can bark.</div>
+
+<div class="p"><strong>4. Suppose <code>g : Animal → Greyhound</code>. Is <code>f(g)</code> type safe?</strong></div>
+
+<div class="p">Yes—this one is safe. <code>f</code> might call its argument (<code>g</code>) with any kind of <code>Dog</code>, and all <code>Dog</code>s are <code>Animal</code>s. Likewise, it may assume the result is a <code>Dog</code>, and all <code>Greyhound</code>s are <code>Dog</code>s.</div>
+
+<h3>What&rsquo;s going on?</h3>
+
+<div class="p">So this is safe:</div>
+
+<pre>(Animal → Greyhound) ≼ (Dog → Dog)
+</pre>
+
+<div class="p">The return types are straightforward: <code>Greyhound</code> is a subtype of <code>Dog</code>. But the argument types are flipped around: <code>Animal</code> is a <em>supertype</em> of <code>Dog</code>!</div>
+
+<div class="p">To state this strange behavior in the proper jargon, we allow function types to be <em>covariant</em> in their return type and <em>contravariant</em> in their argument type. Covariance in the return type means <code>A ≼ B</code> implies <code>(T → A) ≼ (T → B)</code> (<code>A</code> stays on the left of the <code>≼</code>, and <code>B</code> stays on the right). Contravariance in the argument type means <code>A ≼ B</code> implies <code>(B → T) ≼ (A → T)</code> (<code>A</code> and <code>B</code> flipped sides).</div>
+
+<div class="p"><strong>Fun fact:</strong> In TypeScript, <a href="https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-function-parameters-bivariant">argument types are <em>bivariant</em></a> (both covariant and contravariant), which is unsound (although now in <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-6.html">TypeScript 2.6</a> you can fix this with <code>--strictFunctionTypes</code> or <code>--strict</code>). Eiffel also got this <a href="https://www.eiffel.org/doc/eiffel/ET%3A%20Inheritance#Covariance">wrong</a>, making argument types covariant instead of contravariant.</div>
+
+<h3>What about other types?</h3>
+
+<div class="p"><strong>Question:</strong> Could <code>List&lt;Dog&gt;</code> be a subtype of <code>List&lt;Animal&gt;</code>?</div>
+
+<div class="p">The answer is a little nuanced. If lists are immutable, then it&rsquo;s safe to say yes. But if lists are mutable, then definitely not!</div>
+
+<div class="p">Why? Suppose I need a <code>List&lt;Animal&gt;</code> and you pass me a <code>List&lt;Dog&gt;</code>. Since I think I have a <code>List&lt;Animal&gt;</code>, I might try to insert a <code>Cat</code> into it. Now your <code>List&lt;Dog&gt;</code> has a <code>Cat</code> in it! The type system should not allow this.</div>
+
+<div class="p">Formally: we can allow the type of immutable lists to be covariant in its type parameter, but the type of mutable lists must be <em>invariant</em> (neither covariant nor contravariant) in its type parameter.</div>
+
+<div class="p"><strong>Fun fact:</strong> In Java, <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29#Covariant_arrays_in_Java_and_C.23">arrays are both mutable and covariant</a>. This is, of course, unsound.</div>
+
+
+    <div class="p social-media-share">
+      <div class="social-media-link">
+        <div class="fb-like" data-href="https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+      </div>
+      <div class="social-media-link">
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance" data-text="What are covariance and contravariance?"></a>
+      </div>
+      <div class="social-media-link">
+        <div class="g-plus" data-action="share" data-annotation="none" data-href="https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance"></div>
+      </div>
+    </div>
+
+    <div class="row p">
+        <div class="span6 previous-post">
+          <a href="/post/131/type-safe-dimensional-analysis-in-haskell"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Type safe dimensional analysis in Haskell</a>
+        </div>
+        <div class="span6 next-post ">
+          <a href="/post/134/my-hobby-proof-engineering">My hobby: proof engineering&nbsp;<i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
+    </div>
+
+      <div>
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+          this.page.url = "https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance";
+          this.page.identifier = 132;
+        };
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//stephanboyer.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div id="footer-container">
+        <div class="page-separator"> </div>
+        <div class="container" id="footer">
+          <div class="p">&copy; 2022 Stephan Boyer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mathjax -->
+    <script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <!-- Disqus -->
+      <script id="dsq-count-scr" src="//stephanboyer.disqus.com/count.js" async></script>
+
+      <!-- Google Analytics -->
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', "UA-34278795-1"]);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+
+      <!-- Facebook -->
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Twitter -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!-- Google Plus -->
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </body>
+</html>

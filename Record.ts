@@ -1,28 +1,74 @@
 /*
-https://betterprogramming.pub/typescripts-record-type-explained-691372b1a449
-Sunny Sun
-
-accessing an object property with square brackets an index signature. It is used for object types with unknown string keys and a specific value type.
+TypeScript Record
+https://timmousk.com/blog/typescript-record/
+https://dmitripavlutin.com/typescript-record/
+https://type-level-typescript.com/objects-and-records#records
+https://itnext.io/use-typescript-record-types-for-better-code-ce1768c6cb53
+https://dev.to/mnathani/how-the-typescript-record-type-works-4c8
+https://www.copycat.dev/blog/typescript-record/
 */
-type studentScore= { [name: string]: number };
-//the name key expresses the intent more clearly
+type Status = 'error' | 'success';
 
-type studentScore2 = Record<string, number>;
+const statusImages: Record<Status, string> = {
+  error: 'image1.png',
+  success: 'image2.png'
+};
+
+
+
+{
+enum Status {
+  'error' = 'error',
+  'success' = 'success',
+}
+
+const statusImages: Record<Status, string> = {
+  error: 'image1.png',
+  success: 'image2.png',
+};
+}
+
+
+
+interface RoleInfo {
+  image: string;
+  icon: string;
+}
+
+type Role = 'admin' | 'user';
+
+const roleInfo: Record<Role, RoleInfo> = {
+  admin: {
+    image: 'image1.png',
+    icon: 'icon1.svg'
+  },
+  user: {
+    image: 'image2.png',
+    icon: 'icon2.svg'
+  }
+};
+
+
+
 
 /*
-Record type is useful when we want to limit the properties of an object. 
-e.g. use a union of string literals to specify the allowable keys for the Record type
+Use the Record type when using the values of a union type or an enum as properties.
+Use the index signature on generic objects with key names that you don't know in advance.
 */
+type Roles = 'admin' | 'manager';
 
+const rolesImages: Record<Roles, string> = {
+  admin: 'image1.png',
+  manager: 'image2.png',
+};
 
+const genericImages: { [key: string]: string } = {
+  admin: 'image1.png',
+  role3: 'image3.png',
+  role4: 'image3.png',
+};
 
-//the keys can be enums
-
-
-
-//The strongly typed object makes it possible to catch error at compile time.
-type seniorRole = 'manager';
-type technicalRole = 'developer';
-const benefits:  Partial<Record<seniorRole, 'Free Parking'> & Record<technicalRole, 'Free Coffee'>> = {};
-benefits.manager = 'Free Parking';
-benefits.developer = 'Free Parking'; //ERROR: no free parking for dev
+//to iterate over a Record
+for (const role in rolesImages) {
+  console.log(role);
+}

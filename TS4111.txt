@@ -1,0 +1,17 @@
+TS4111: Property 'N' comes from an index signature, so it must be accessed with ['N']
+
+<div *ngIf="form.controls.firstName.errors?.required && form.controls.firstName.touched" class="error">
+TS4111: Property 'firstName' comes from an index signature, so it must be accessed with ['firstName'].
+
+change f.fName.errors to f['fName'].errors.
+change f.firstName.errors to f['firstName'].errors.
+
+form.controls['firstName'].errors?.required
+
+
+
+<div *ngIf="firstName.errors?.required">First Name is required</div>
+to:
+
+<div *ngIf="firstName.errors?.['required']">First Name is required</div>
+the '?' is to ensure that the errors object is not null.

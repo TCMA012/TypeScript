@@ -1,0 +1,6 @@
+Unlisted Property Narrowing with the in Operator
+TypeScript 4.9
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html
+https://github.com/microsoft/TypeScript/pull/50666
+https://github.com/microsoft/TypeScript/issues/21732
+https://github.com/microsoft/TypeScript/issues/50639

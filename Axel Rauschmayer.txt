@@ -1,0 +1,72 @@
+https://exploringjs.com/impatient-js/
+JavaScript for impatient programmers (ES2021 edition)
+Dr. Axel Rauschmayer
+
+https://exploringjs.com/impatient-js/ch_numbers.html
+
+
+
+https://exploringjs.com/deep-js/
+Deep JavaScript: Theory and techniques
+
+https://exploringjs.com/tackling-ts/
+Tackling TypeScript:
+Upgrading from JavaScript
+
+ECMAScript 5
+http://speakingjs.com/es5/index.html
+
+
+
+https://2ality.com/
+
+
+
+https://exploringjs.com/impatient-js/ch_promises.html
+40.5.2.2
+use .map() and Promise.all() to download text files from the web. we need the following tool function:
+function downloadText(url) {
+  return fetch(url)
+    .then((response) => { // (A)
+      if (!response.ok) { // (B)
+        throw new Error(response.statusText);
+      }
+      return response.text(); // (C)
+    });
+}
+
+const urls = [
+  'http://example.com/first.txt',
+  'http://example.com/second.txt',
+];
+
+const promises = urls.map(
+  url => downloadText(url));
+
+Promise.all(promises)
+  .then(
+    (arr) => assert.deepEqual(
+      arr, ['First!', 'Second!']
+    ));
+
+
+
+40.5.3.1 Using Promise.race() to time out a Promise 
+This helper function will be useful:
+
+function resolveAfter(ms, value=undefined) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(value), ms);
+  });
+}
+resolveAfter() returns a Promise that is resolved with value after ms milliseconds.
+
+This function times out a Promise:
+
+function timeout(timeoutInMs, promise) {
+  return Promise.race([
+    promise,
+    resolveAfter(timeoutInMs,
+      Promise.reject(new Error('Operation timed out'))),
+  ]);
+}

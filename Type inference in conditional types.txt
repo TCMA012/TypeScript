@@ -1,0 +1,2 @@
+Type inference in conditional types
+https://github.com/Microsoft/TypeScript/pull/21496

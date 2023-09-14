@@ -1,0 +1,8 @@
+TypeScript const Type Parameters
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html
+https://github.com/microsoft/TypeScript/issues/30680
+https://github.com/microsoft/TypeScript/pull/51865
+https://github.com/microsoft/TypeScript/issues/41114
+https://www.totaltypescript.com/const-type-parameters
+https://blog.logrocket.com/complete-guide-const-assertions-typescript/
+https://typescript.tips/const-type-parameters/

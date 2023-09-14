@@ -1,0 +1,25 @@
+"compilerOptions": {
+    "baseUrl": ".", // This must be specified if "paths" is.
+    "paths": {
+      "jquery": ["node_modules/jquery/dist/jquery"] // This mapping is relative to "baseUrl"
+    }
+  }
+  
+  
+  
+  "paths" : {
+      "@bar/*" : [
+          "foo/bar/*"
+      ]
+    },
+	
+	
+	
+import { FormModel } from 'ngx-mf';
+
+
+  "paths" : {
+      "ngx-mf/*" : [
+          "ngx-mf/*"
+      ]
+    },

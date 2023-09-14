@@ -1,0 +1,2 @@
+Type Guard
+https://instil.co/blog/typescript-44-type-guards/

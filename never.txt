@@ -1,0 +1,19 @@
+https://www.zhenghao.io/posts/ts-never
+
+By using never, we can partially disable structural typing and prevent users from passing object values that include both properties:
+
+type VariantA = {
+    a: string
+    b?: never
+}
+
+type VariantB = {
+    b: number
+    a?: never
+}
+
+declare function fn(arg: VariantA | VariantB): void
+
+
+const input = {a: 'foo', b: 123 }
+fn(input) // ❌ Types of property 'a' are incompatible

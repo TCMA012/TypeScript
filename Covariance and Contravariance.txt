@@ -1,0 +1,5 @@
+Covariance and Contravariance in TypeScript
+https://dmitripavlutin.com/typescript-covariance-contravariance/
+https://stackoverflow.com/questions/66410115/difference-between-variance-covariance-contravariance-and-bivariance-in-typesc
+https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-function-parameters-bivariant
+Stephan Boyer co-variance  contra-variance

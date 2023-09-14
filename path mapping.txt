@@ -1,0 +1,23 @@
+angular Typescript path mapping
+
+tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./src", // This must be specified if "paths" is.
+    "paths": {
+      "express": ["../node_modules/express/lib/express"] // This mapping is relative to "baseUrl"
+    }
+  }
+}
+
+
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"]
+    },
+	
+	
+	
+https://medium.com/@lincoln.a.m.c/angular-libraries-entry-points-path-mappings-and-workspace-configurations-96522f32fd76
+https://github.com/LAlves91/libs-workspace
+13

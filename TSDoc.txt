@@ -1,0 +1,2 @@
+TSDoc is a proposal to standardize the doc comments used in TypeScript code, so that different tools can extract content without getting confused by each other's markup.
+https://tsdoc.org/

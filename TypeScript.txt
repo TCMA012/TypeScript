@@ -1,0 +1,163 @@
+The TypeScript programming language
+
+https://www.typescriptlang.org/
+
+https://www.typescriptlang.org/docs/handbook/2/classes.html
+https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
+
+
+
+https://github.com/microsoft/TypeScript
+https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts
+
+
+
+TypeScript tutorial
+
+TypeScript Playground
+
+Repl.it (enter "TypeScript" and select the editor)
+
+
+
+Strict function types
+https://www.typescriptlang.org/tsconfig#strictFunctionTypes
+During development of this feature, we discovered a large number of inherently unsafe class hierarchies, including some in the DOM. Because of this, the setting only applies to functions written in function syntax, not to those in method syntax:
+
+type Methodish = {
+  func(x: string | number): void;
+};
+ 
+function fn(x: string) {
+  console.log("Hello, " + x.toLowerCase());
+}
+ 
+// Ultimately an unsafe assignment, but not detected
+const m: Methodish = {
+  func: fn,
+};
+m.func(10);
+
+
+
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-6.html
+
+https://www.typescriptlang.org/docs/handbook/2/mapped-types.html
+
+
+
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/
+
+
+
+
+https://www.lloydatkinson.net/posts/2022/going-further-with-typescript-part-1/
+
+
+
+
+https://www.geekabyte.io/2021/04/mapped-types-in-typescript.html
+https://www.geekabyte.io/2021/01/introduction-to-advance-types-in.html
+
+
+
+https://www.wwt.com/article/typescript-records-and-mapped-types
+
+
+
+https://2ality.com/2020/06/computing-with-types.html
+
+
+
+https://www.typescript-training.com/
+https://www.typescript-training.com/course/fundamentals-v3
+
+
+
+https://fettblog.eu/
+https://fettblog.eu/typescript-hasownproperty/
+function hasOwnProperty<X extends {}, Y extends PropertyKey>
+  (obj: X, prop: Y): obj is X & Record<Y, unknown> {
+  return obj.hasOwnProperty(prop)
+}
+
+https://fettblog.eu/typescript-assertion-signatures/
+https://fettblog.eu/typescript-unexpected-intersections/
+https://fettblog.eu/variadic-tuple-types-preview/
+https://fettblog.eu/typescript-function-overload/
+
+
+
+https://yakovfain.com/2019/03/05/an-intro-to-typescript-generics/
+https://yakovfain.com/2019/03/16/typescript-mapped-types-part-1/
+https://yakovfain.com/2019/04/06/typescript-mapped-types-part-2/
+
+
+
+
+
+
+https://mariusschulz.com/blog/series/typescript-evolution
+https://mariusschulz.com/blog/keyof-and-lookup-types-in-typescript
+https://mariusschulz.com/blog/mapped-types-in-typescript#modeling-object-freeze-with-mapped-types
+
+
+
+https://basarat.gitbook.io/typescript/
+https://basarat.gitbook.io/typescript/type-system/discriminated-unions
+
+
+
+
+https://www.stevefenton.co.uk/2017/11/typescript-mighty-morphing-mapped-types/
+https://www.stevefenton.co.uk/2019/09/expecting-one-out-of-two-members-in-typescript-types/
+https://www.stevefenton.co.uk/2018/11/create-and-hydrate-a-typescript-class-from-json/
+
+
+
+https://grrr.tech/posts/2021/typescript-partial/
+//nested objects
+type Subset<K> = {
+    [attr in keyof K]?: K[attr] extends object ? Subset<K[attr]> : K[attr];
+};
+
+
+
+
+https://pjchender.dev/typescript/guide-ts-mapped-typed/
+
+
+http://man.hubwiz.com/docset/TypeScript.docset/Contents/Resources/Documents/www.typescriptlang.org/docs/handbook/advanced-types.html
+
+
+
+https://itnext.io/not-another-doctorate-a-digestible-chapter-on-mapped-types-in-typescript-99fe27087eea
+https://blog.bitsrc.io/typescripts-type-manipulations-58fee110be28
+https://blog.bitsrc.io/manipulation-continues-with-typescripts-type-operators-fb07ad31a9b9
+
+
+
+https://www.carlrippon.com/typescript-dictionary/
+
+
+
+https://www.typescripttutorial.net/
+
+https://www.tutorialspoint.com/typescript/index.htm
+
+https://learntypescript.dev/
+
+https://www.tutorialsteacher.com/typescript
+
+
+https://www.educative.io/blog/typescript-tutorial
+
+
+
+typing tricks
+http://riegler.fr/posts/ts-tricks/
+
+
+
+https://github.com/sindresorhus/type-fest
+
