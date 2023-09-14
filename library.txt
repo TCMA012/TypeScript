@@ -3,6 +3,8 @@ The type-fest package contains only types, meaning they are only used at compile
 https://github.com/sindresorhus/type-fest
 https://github.com/sindresorhus/type-fest/blob/main/source/partial-deep.d.ts
 https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
+PartialDeep
+Simplify
 
 
 
