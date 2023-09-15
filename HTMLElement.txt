@@ -45,4 +45,51 @@ querySelectorAll<K extends keyof HTMLElementTagNameMap>(selectors: K): NodeListO
 querySelectorAll<K extends keyof SVGElementTagNameMap>(selectors: K): NodeListOf<SVGElementTagNameMap[K]>;
 querySelectorAll<E extends Element = Element>(selectors: string): NodeListOf<E>;
 
-The querySelectorAll definition is similar to getElementsByTagName, except it returns a new type: NodeListOf. This return type is essentially a custom implementation of the standard JavaScript list element. 
+The querySelectorAll definition is similar to getElementsByTagName, except it returns a new type: 
+NodeListOf. 
+This return type is essentially a custom implementation of the standard JavaScript list element. 
+
+
+
+/**
+ * NodeList objects are collections of nodes, usually returned by properties such as Node.childNodes and methods such as document.querySelectorAll().
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NodeList)
+ */
+interface NodeList {
+    /**
+     * Returns the number of nodes in the collection.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NodeList/length)
+     */
+    readonly length: number;
+    /**
+     * Returns the node with index index from the collection. The nodes are sorted in tree order.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NodeList/item)
+     */
+    item(index: number): Node | null;
+    /**
+     * Performs the specified action for each node in an list.
+     * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the list.
+     * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    forEach(callbackfn: (value: Node, key: number, parent: NodeList) => void, thisArg?: any): void;
+    [index: number]: Node;
+}
+
+declare var NodeList: {
+    prototype: NodeList;
+    new(): NodeList;
+};
+
+interface NodeListOf<TNode extends Node> extends NodeList {
+    item(index: number): TNode;
+    /**
+     * Performs the specified action for each node in an list.
+     * @param callbackfn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the list.
+     * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+     */
+    forEach(callbackfn: (value: TNode, key: number, parent: NodeListOf<TNode>) => void, thisArg?: any): void;
+    [index: number]: TNode;
+}
