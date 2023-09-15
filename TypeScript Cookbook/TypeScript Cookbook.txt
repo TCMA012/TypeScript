@@ -1,6 +1,6 @@
 TypeScript Cookbook
 by Stefan Baumgartner
-page 211
+
 
 github TypeScript Cookbook Stefan Baumgartner
 github "TypeScript Cookbook" Stefan Baumgartner
