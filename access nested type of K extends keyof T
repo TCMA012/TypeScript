@@ -1,0 +1,3 @@
+How to access nested type of: K extends keyof T, T[K], e.g. T[K]["someSubField"]
+https://stackoverflow.com/questions/73384699/how-to-access-nested-type-of-k-extends-keyof-t-tk-e-g-tksomesubfield
+ use a mapped type as the parameter. This technique, sometimes called a reversed mapped type, will ensure TS can follow the correlation inside each element of the array:
