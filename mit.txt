@@ -1,4 +1,17 @@
 https://web.mit.edu/6.031/www/sp23/
 https://web.mit.edu/6.031/www/sp23/classes/02-testing/
+https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/
+https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/code.html#charsetts
+https://web.mit.edu/6.031/www/sp23/classes/09-debugging/
+https://web.mit.edu/6.031/www/sp23/classes/10-equality/
 https://web.mit.edu/6.031/www/sp22/
 https://web.mit.edu/6.031/www/sp22/classes/03-testing/
+
+
+
+https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/ex07-adt-examples.zip
+
+
+
+A sophisticated logging framework
+https://www.npmjs.com/package/winston
