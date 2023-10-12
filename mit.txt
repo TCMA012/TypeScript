@@ -15,3 +15,8 @@ https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invarian
 
 A sophisticated logging framework
 https://www.npmjs.com/package/winston
+
+
+
+assert.deepStrictEqual() in the Node library
+isEqual() in Lodash
