@@ -1,11 +1,24 @@
 https://web.mit.edu/6.031/www/sp23/
 https://web.mit.edu/6.031/www/sp23/classes/02-testing/
+https://web.mit.edu/6.031/www/sp23/classes/05-designing-specs/#^predicate
 https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/
 https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/code.html#charsetts
 https://web.mit.edu/6.031/www/sp23/classes/07-abstraction-functions-rep-invariants/ex07-adt-examples.zip
 https://web.mit.edu/6.031/www/sp23/classes/09-debugging/
 https://web.mit.edu/6.031/www/sp23/classes/10-equality/
 https://web.mit.edu/6.031/www/sp23/classes/11-recursive-data-types/
+https://web.mit.edu/6.031/www/sp23/classes/12-regex-grammars/code.html
+https://web.mit.edu/6.031/www/sp23/classes/13-functional/code.html#words1ts
+https://web.mit.edu/6.031/www/sp23/classes/13-functional/code.html#words2ts
+https://web.mit.edu/6.031/www/sp23/classes/13-functional/ex13-words.zip
+
+
+
+https://web.mit.edu/6.102/www/parserlib/3.2.3/typedoc/
+
+
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-035-computer-language-engineering-spring-2010/lecture-notes/MIT6_035S10_lec04.pdf
 
 
 
@@ -28,3 +41,27 @@ https://en.wikipedia.org/wiki/Algebraic_data_type
 
 
 Sentinel object
+
+
+
+https://en.wikipedia.org/wiki/Left_recursion
+https://en.wikipedia.org/wiki/Left_recursion#Removing_left_recursion
+
+
+
+https://www.typescriptlang.org/docs/handbook/2/functions.html
+
+
+
+https://www.digitalocean.com/community/conceptual_articles/understanding-this-bind-call-and-apply-in-javascript
+
+
+
+https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html#forof-statements
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
