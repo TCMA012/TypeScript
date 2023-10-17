@@ -11,6 +11,11 @@ https://web.mit.edu/6.031/www/sp23/classes/12-regex-grammars/code.html
 https://web.mit.edu/6.031/www/sp23/classes/13-functional/code.html#words1ts
 https://web.mit.edu/6.031/www/sp23/classes/13-functional/code.html#words2ts
 https://web.mit.edu/6.031/www/sp23/classes/13-functional/ex13-words.zip
+https://web.mit.edu/6.031/www/sp23/classes/16-mutual-exclusion/code.html
+https://web.mit.edu/6.031/www/sp23/classes/17-callbacks-guis/code.html
+https://web.mit.edu/6.031/www/sp23/classes/17-callbacks-guis/ex17-gui.zip
+https://web.mit.edu/6.031/www/sp23/classes/19-little-languages/code.html
+https://web.mit.edu/6.031/www/sp23/classes/19-little-languages/ex19-music-starting.zip
 
 
 
@@ -65,3 +70,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
+
+
+
+https://whatismyipaddress.com/
+
+
+
+https://api.weather.gov/gridpoints/BOX/69,75/forecast
+
+
+
+https://web.mit.edu/6.031/www/sp23/classes/18-message-passing-networking/code.html
+
+
+
+https://www.martinfowler.com/bliki/DomainSpecificLanguage.html
