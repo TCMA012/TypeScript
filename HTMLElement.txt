@@ -36,15 +36,21 @@ HTMLElement interface extends the Element interface which extends the Node inter
  */
 querySelector<K extends keyof HTMLElementTagNameMap>(selectors: K): HTMLElementTagNameMap[K] | null;
 querySelector<K extends keyof SVGElementTagNameMap>(selectors: K): SVGElementTagNameMap[K] | null;
+querySelector<K extends keyof MathMLElementTagNameMap>(selectors: K): MathMLElementTagNameMap[K] | null;
 querySelector<E extends Element = Element>(selectors: string): E | null;
+
+
 
 /**
  * Returns all element descendants of node that match selectors.
  */
 querySelectorAll<K extends keyof HTMLElementTagNameMap>(selectors: K): NodeListOf<HTMLElementTagNameMap[K]>;
 querySelectorAll<K extends keyof SVGElementTagNameMap>(selectors: K): NodeListOf<SVGElementTagNameMap[K]>;
+querySelectorAll<K extends keyof MathMLElementTagNameMap>(selectors: K): NodeListOf<MathMLElementTagNameMap[K]>;
 querySelectorAll<E extends Element = Element>(selectors: string): NodeListOf<E>;
 
+	
+	
 The querySelectorAll definition is similar to getElementsByTagName, except it returns a new type: 
 NodeListOf. 
 This return type is essentially a custom implementation of the standard JavaScript list element. 
