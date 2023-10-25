@@ -1,6 +1,15 @@
 TypeScript in 50 Lessons Stefan Baumgartner
 TypeScript_in_50_Lessons
 https://studylib.net/doc/26112323/typescript-in-50-lessons
-page 274
+page 
+
 https://typescript-book.com/
+Playground for Lessons
+
+
+
 https://codesandbox.io/s/chapter-1-wgkhe?file=/index.js
+
+
+
+https://hackmd.io/@typescript-complete/B19adeHTI
