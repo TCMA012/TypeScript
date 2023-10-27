@@ -8,7 +8,7 @@ This is because TypeScript's type system is structural, not nominal. Everything 
 
 If you want to represent an empty object, use Record<string, never> instead.
 
-
+https://www.totaltypescript.com/learn-typescript
 https://www.totaltypescript.com/immediately-indexed-mapped-type
 
 https://www.totaltypescript.com/where-to-put-your-types-in-application-code
