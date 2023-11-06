@@ -1,0 +1,16 @@
+TypeScript in 50 Lessons Stefan Baumgartner
+https://studylib.net/doc/26112323/typescript-in-50-lessons
+
+https://typescript-book.com/
+https://codesandbox.io/s/chapter-1-wgkhe?file=/index.js
+
+
+page 245
+function isUserEventListCategory(
+  list: UserEvents,
+  category: string
+): category is keyof UserEvents
+{ 
+    // The type predicate
+    return Object.keys(list).includes(category)
+}

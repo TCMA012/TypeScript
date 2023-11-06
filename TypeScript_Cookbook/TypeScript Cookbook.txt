@@ -1,0 +1,54 @@
+TypeScript Cookbook
+by Stefan Baumgartner
+
+
+github TypeScript Cookbook Stefan Baumgartner
+github "TypeScript Cookbook" Stefan Baumgartner
+https://typescript-cookbook.com/
+https://typescript-cookbook.com/examples/
+
+https://www.oreilly.com/library/view/typescript-cookbook/9781098136642/
+https://www.oreilly.com/library/view/typescript-cookbook/9781098136642/ch04.html
+
+
+
+interface HTMLElementTagNameMap {
+	[x: string]: HTMLUnknownElement;
+};
+
+
+
+function createElement<T extends keyof AllElements>(tag: T, props?: ): AllElements<T>
+
+
+
+DOM NodeList
+
+
+
+Distributive Conditional Type
+Ch 8.5 or 8.6 Naked types in Conditional types
+With a Naked type , a Conditional of union types becomes a union of Conditional types
+
+
+
+
+DeepPartial
+
+
+
+Debug
+Simplify
+type Remap<T> = {
+	[K in keyof T]: T[K];
+};
+
+
+
+type DeepRemap<T> = T extends object
+	? {
+		  [K in keyof T]: DeepRemap<T[K]>;
+	  }
+	: T;
+
+

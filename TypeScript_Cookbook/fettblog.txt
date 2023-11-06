@@ -1,0 +1,16 @@
+https://fettblog.eu/typescript-type-maps/
+https://fettblog.eu/low-maintenance-types-typescript/
+
+
+
+https://fettblog.eu/typescript-union-to-intersection/
+The naked type
+we use the generic type argument as a naked type.
+This means that we check if T is in a sub-type condition without wrapping it in something.
+type Naked<T> = 
+  T extends ... // naked!
+type NotNaked<T> = 
+  { o: T } extends ... // not naked!
+Naked types in conditional types have a certain feature. If T is a union, they run the conditional type for each constituent of the union. 
+So with a naked type, a conditional of union types becomes a union of conditional types. 
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html
