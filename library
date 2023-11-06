@@ -1,6 +1,13 @@
+https://github.com/type-challenges/type-challenges
+
 A typescript library for type-safe regex for named capture groups
 https://github.com/phenax/typed-regex/
 
 Work seamlessly with partial mocks in TypeScript
 shoehorn (meaning "to force something into a space") lets you pass partial data in tests while keeping TypeScript happy.
 https://github.com/total-typescript/shoehorn
+
+Converts JavaScript to TypeScript and TypeScript to better TypeScript
+https://github.com/JoshuaKGoldberg/TypeStat
+
+https://github.com/airbnb/ts-migrate
