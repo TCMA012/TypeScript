@@ -2,6 +2,7 @@
 TypeScript Cookbook
 by Stefan Baumgartner
 https://typescript-cookbook.com/examples/
+4.7 Mapping types with type Maps
 */
 type AllElements = HTMLElementTagNameMap &
 {
