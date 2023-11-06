@@ -1,0 +1,703 @@
+TSConf 2020: Keynote - Anders Hejlsberg
+1:14:11
+SitePen
+Nov 9, 2020
+Presenter: Anders Hejlsberg  @ahejlsberg
+
+DEMOS:
+https://github.com/ahejlsberg/tsconf2020-demos
+
+Transcript
+good morning everyone i'm anders heilsberg a technical fellow at microsoft
+and i'm excited to be here at our virtual ts conf thanks to all of the knicks for the
+intro and and really a big thanks to sitepen for for putting this on again this is the third ts conf
+and but i primarily want to thank all of you for all of the support that you've
+shown by using typescript and and continuing to grow the the community it's really
+the thing that keeps our team motivated keeps us going is is all of that enthusiasm out
+there obviously this this year's event is a little bit different from the previous
+years everything is different this year really i in particular will sort of miss the
+personal interactions that that we've been able to have at the at the other conferences but but
+but most of all i missed a swag but i still have the swag from from last year and i'm gonna give this
+talk wearing my typescript socks so i'm all properly equipped here
+um this this talk is sort of a year in review of of what's been going
+on with with typescript i'm going to talk a little bit about how we operate and why we do what we do
+and then talk about what's happened in the in the last year in the community and in the product
+and then of course we're going to take a look at what's coming up next in the product and then finally i'll wrap
+up
+you may have seen this live before it it it's i i like it because i think it
+really perfectly in one picture summarizes why we exist you know javascript is is a language
+that has issues pitfalls and whatever but there are some there are some good parts in javascript and really we see our job
+um to be helping you avoid the bad parts and amplifying the good parts and and
+the primary way we do that is by adding a static type system to to javascript and then using that static
+type system we build excellent tooling on top and and really the static types are this deep
+enabler for for really everything that powers modern ides today you know like things like
+like online error messages or sorry like red squigglies errors compile time type checking code
+navigation statement completion go to definition etc etc
+now typescript turned eight last week in fact it's it's amazing
+that it's that it's been this long here's a here's a picture from
+the day we officially unveiled typescript at go to conf in
+in our house denmark in 2012. this is myself in the middle and then we have
+steve luco on my two on the right hand side of the picture and and
+luke open on on the left hand side wearing traditional head garb of my of my youth
+um we've learned a lot in in the
+eight years that have since transpired our community has grown tremendously we've learned a lot about how to
+do open source and how to do open development and really we've we've distilled it down to these sort of
+six operating principles that that that govern how we run the the
+typescript project as i said we are we are open source
+and open development we moved the project to github about six years ago now and the entire
+team operates on github day-to-day that is really our our workflow
+and we're deeply committed to to staying open source for forever
+we see it as our job to closely track the ecmascript standard but but but not to actually make new
+features in the ecmascript language or in in in the in the javascript part of
+the language in fact we we participate in the ecmascript standard we have
+represented two of our our team members our representatives in ecmascript and we've championed
+several proposals and and are are very much involved but but really
+where we innovate is in the type system and and that's sort of where we where we
+where we see our the place where we add value and and we we have indeed continued to innovate and we will
+continue to to do that and really the job of the type system here is is as i said
+to to power best of breed tooling and that's why we do the type system
+we also really continuously strive to lower the barrier to entry
+um of course you know typescript is a superset of of javascript and and and that means
+a lot of people come from javascript and some people want to just stay in javascript and don't necessarily feel like it's it's
+it's worthwhile to add manifest type annotations and have a compile step and so forth and
+and so so we've invested a lot in using all of our typescript infrastructure
+just for plain javascript so for example we now fully support jsdoc annotations and we can we can slurp up
+type information from jsdoc and we use the typescript compiler as the language service when you're coding
+in javascript in vs code for example and then finally community community
+community it's it's it's we are deeply committed to to staying engaged with the community and
+and you know the fact that we're on github means that we are just we are we are right there
+there's zero distance between us and and and you and you know we're constantly monitoring the issue tracker
+and answering questions and and so forth
+the typescripts the typescripts type system is is interesting in that it has a bunch of features
+that i've never really seen combined in in in any other type system
+you know some some type systems might may have some of these but but but this notion that we are erasable
+and a gradual type system is is fairly new in in thai systems research
+we're structural where most type systems tend to be nominal we are heavily generic
+we we do heavy-duty inference we're also very expressive and and in
+fact we have a whole bunch of of type constructor or type
+concepts that really only pertain to to javascript such as index access types
+and and then you'll see like like tuples and and and some of the
+newer features that that that we're investing in and then we support both object-oriented and functional
+programming styles
+looking a bit at what's been going on is since in the last year well here's the last
+year and a half but since the last tea is conf also in which was a year ago
+about 18 months ago we decided to to go on a fixed three months relief
+release cadence we now release product every february may august
+and november and we have been on that cadence now for for the last 18 months
+and as you can see here typescript 40 is is is our latest release and
+typescript 41 is indeed slated to release in november and the growth in
+in our in our in our usage has has been phenomenal you know it's it's i i we have literally
+i i think now for eight years going seeing a a a doubling every year of the number of
+downloads that that go on on on npm and and indeed we've we managed to to double
+yet again in in the past year of course the law of large numbers is going to make this impossible eventually
+but it is truly astounding that that we now average about almost 60 million
+downloads per per months on npm
+some other interesting metrics there's this big state of javascript
+survey that's done every every year this is the fourth year
+this survey has more than 20 000 participants and you can sort of see our
+growth here the the red is the number of people who have used
+typescript and and will use it again and we have grown you know to now be at almost 60 percent
+of what i would classify probably as professional javascript developers
+since since they're the ones responding to this survey but that is truly astounding that that we have we have
+penetrated more than more than half of of all professional javascript
+users and an additional 22 percent say that that they've heard of it and
+would like to use it so so if you sum those up we're close to eighty percent
+um here's another metric that that is actually quite
+recent this is the second quarter of of this year and this is looking
+at how many pull requests were submitted on github
+group by language and you can see typescript is now at number six and climbing which is
+uh quite amazing and of course if you if you sum up typescript and javascript together since they really aren't just
+sort of close cousins that's almost that's more than 25 percent of all pull requests on on
+github this this survey is
+or this this slide here is from the stack overflow annual developer survey which is
+surveys i think 60 more than 60 000 developers and i particularly
+like like this category here what is the most loved programming language where we this year
+managed to eat second place which just just just
+passed python which of course makes me very happy i'm not gonna talk about which language
+is the most dreaded i'm gonna leave that to you to guess
+here's our team it's it's not a very big team less than 20 people this picture is
+actually from last year and of course we wanted to take a picture of our team this year but this is what
+our what our workflow looks like now obviously but i i will say
+it is remarkable how this team has just not missed a beat in spite of of
+all that has happened this year we were already sort of half
+remote in that that half of our team members are distributed over the all over the world but but but at this point all of us
+are are remote yet all of our processes have just continued without skipping a
+beat and and and i i can only attribute that to this fantastic team of people that i that i
+get to work with every day so let's talk a bit about what's
+happened in the typescript community in in the past year
+you probably know that last year we did a bunch of work to support
+typescript in babel in fact our team did a whole bunch of work to submit pull requests that allows battle to
+uh to transpile typescript and that it's it's been great to see how that
+work has continued this year and largely has been taken over by the babel community itself and i think
+the the latest release of babel seven seven point eleven
+uh has already has typescript 40 support and there's work ongoing to add typescript 401 support
+already eslint is another one of those
+tools that where we we a year ago we retired or the community retired tslint and put
+a big amount of effort into converging on a single linter
+es link that the ecmascript community already uses and that work again has been has been
+ongoing this year and the the typescript eslint project that that exists to translate the
+typescript ast into es3 which eslint uses is is
+just running real smooth and and one of the sort of fantastic benefits of of this
+combination is that it's now possible to write linter rules that you semantic information from from
+typescript where linters typically really could only look at syntactic and grammatical constructs now it's
+possible to to actually consult the typescript type checker in your linting rules
+even for javascript another newcomer here in in in the
+community is dino they they ship dino is is a an evolution of node
+uh it's built by yeah built by ryan dahl or started by
+ryan doll who was the original author of node.js they shipped their version 100 in may
+of this year and it's it's a very interesting project
+one that that that we're very enthusiastic about it supports typescript built in
+it's a single executable download it uses urls to to find modules and whatever all sorts
+of interesting stuff it's probably still at a researchy stage but but but
+um but it's a it's a it's a good project there are
+lots of frameworks out there in the ecmascript community and we really see ourselves as being
+completely framework neutral one one thing that's amazing is that that all of them now all of
+these these players here and many more all support typescript angular is written in typescript
+uh react is not but react cli fully supports typescript u3o
+is supports that is written in typescript large parts of ember are written in typescript
+um large parts of svelte also and it's nice to see all of that
+adoption and we're deeply committed to working with each of the owners and maintainers of these frameworks to make
+sure that that we have the best possible experience in the typescript toolset
+a lot happened in our playground this year all pioneered by
+orta one of our team members in fact there's so much there that there's a whole separate talk about what happened
+in the playground that you can watch later this afternoon there's definitely a bunch of cool stuff
+um definitely typed is such an integral part of our
+of our community it is consistently one of the 10 most active
+repos on github up today there's there's been about 12 000
+individual committers on on definitely tight witches which is just amazing and
+and since about two well three or four years ago we the community urged us to get
+involved in helping managed all of the all of the information that that's on definitely
+typed and we've done a bunch of work we don't actually write any of the type definitions that are up there but we
+we do build a lot of the tooling that powers definitely type we build a lot of the tooling that
+packages up our type definitions and and and deploys
+them are under the ad types namespace on on mpm and
+and you know there's about 250 pull requests per week
+going on on definitely type every week we have a rotation where if a team member is on on definitely
+type duty a week at a time and that has been a big a big drain and
+and so we've invested heavily in in building tooling that also eases that workflow
+and and and knew this year was sort of the ability to have self-merging we call them self-merging
+uh pull requests it really boils down to a a bunch of bots that check that that
+up that a that a pr has all the appropriate tests passes all of the the continuous
+integration and that the owner has approved it and then ultimately allows the the
+author to just merge the pr themselves and that has cut down a bunch of the
+the workload and now about 20 20 prs daily emerge just by the community itself which is which is great to see
+uh discord is another place where that that that has grown tremendously for typescript in the last year there's
+about in the in the typescript discord community is about 2100 concurrent users at any given time
+it's a great place for for newcomers to land and ask questions and of course
+there's also stack overflow so and last but not least i i want to give
+big thanks to all of the community contributions as you can see it's hard to fit it all on on one slide here but lots and lots of
+product features now are are being built by the community and it just it's wonderful to to see
+that engagement and and keep it coming we're we're very committed to to
+to this whole process of the community building their favorite features
+so that takes me to what's new and i'm gonna first talk
+about what has happened in the last year and then after that we'll take a look at
+what what what is coming and i've sort of divvied it into a few
+different buckets first we'll talk about new ecmascript features then new type scripting types system features
+uh then new tooling features and and then also
+look a little bit about what's happened to our website and and documentation so as i said we we closely track
+ecmascript and and generally speaking whenever proposals reach stage three we endeavor
+to implement them in the in the typescript compiler and last ts conf you saw me demo
+optional chaining and knowledge coalescing they are now in in the in the language new this year
+is private fields which was built by bloomberg thank you thank you very
+much also export namespace from and logical assignment operators
+well we'll take a look at a few of these let me start by by
+looking at private fields here we go so
+let's try to see this guy here whoops there so private fields are basically the
+ability to sort of prefix your your your property names with pound and
+that gives you a new namespace where all property names are completely
+uh private within the declaration of a class so so pound name here is only visible
+inside the class declaration and cannot be accessed outside this is unlike the private modifier and
+typescript which really is just a compile-time feature the private modifier gets completely
+erased and at runtime it's just a regular property and you
+may go well that that's fantastic why would i ever then use the private modifier
+well when we compile this code if if you're
+running on that yes next which my my config options are set to right here then the
+compile code looks very nice i mean we just erased the type annotations right but but let's say
+that we switch to es 2015 and we compile down level for
+example and let's try to build here and then let's look at the code
+that comes out of that now there we go but you'll see that
+that private fields are are pretty heavy duty transformation that happens to the code you still see the class in
+here but now what because guaranteed privacy really isn't possible with regular
+properties instead we emit code that creates a weak map for
+every property name and then stores the property values into that weak map and obviously there's
+uh there's some overhead associated with storing your state that way
+depending on your program it may it may range from not measurable to as much as 10x
+overhead and so if you plan to use
+private fields and you plan to use them down level i would i would recommend that you
+measure and and just make sure that your performance is not too adversely affected
+but of course ultimately this will end up in in ecmascript itself hopefully the the
+proposal is still a stage three but it is implemented by v8 natively currently so that's
+private fields another feature that that is new from ecmascript is logical
+assignment operators and let's try to look at whoops no that was not the right
+ops here so you're all
+probably familiar with the boolean logical operators or and and and the new knowledge coalescing
+operator that allows you to to substitute a value when when something is null
+or or undefined and of course in in javascript all operators have had
+a compound form where where like you could write
+plus equals minus equals and so forth but but strangely the logical operators did not have the
+the the assignment form but that is new and slated to be in in the next
+release of ecmascript and we now implement that in
+um in in typescript and we can look at the compiled code when you when you use this
+operator here you'll see that the thing that's interesting about it is that the assignment does not take
+place unless the test in the in case of the or or the assignment only takes place if
+if a is faulty or truthy respectively
+um or if a is is null and
+that actually matters you know and that is that is really sort of the difference between writing a or or equals something versus a equals
+a or or something is that that the assignment only takes place when the thing is faulty or truthy
+and if you have a property access or for example that means that you know
+your property access it won't even be called in in that case so so that's that's
+this feature i'm gonna move on to i guess we've got lots to to show here
+i'm going to move on to some of the new type system features
+i showed some of the newcomers already at the last ts conf such as assertions recursive type
+references and uncalled function checks
+new this year is support for type only imports and exports
+[Music] which makes it easier to to control
+uh when a module is referenced in the in the transpiled javascript
+um and and with type only imports you can ensure that that you the only thing you import from another
+module is types and therefore that in the runtime version of your
+javascript the module will actually not be required
+we have some work to reduce intersections by discriminants this is sort of in more in the in the area of
+correctness correctness of type checking for discriminated union types and then a particularly
+interesting feature is bariatic tuple types and variation types is is
+sort of a continuation on a on a long long running saga to to finally
+fix this issue called variatic kinds which goes back five years
+uh and has been extremely popular as you can see uploaded to almost 800 upvotes and
+and one one meta comment here is we do we do pay close attention to to these
+upvotes and this is why we devote time to it because clearly the the communities is is showing us that this is a feature
+that that that everyone wants and so about two years ago
+in typescript 3-0 we introduced variatic
+we introduced certain additional features in tuple types like like optional parameter
+sorry optional elements and rest elements and we
+added support for variatic functions that could capture parameter list in
+in tuples but but but all you could do with that was capture entire parameter lists and then sort
+of spread them back into a another function call but it we did not add the ability to slice and
+dice tuples themselves and that is really what what
+variatic tuple types are about and let's try to take a look at
+that in in action in in its in a nutshell
+this feature is about allowing variatic holes in your tuple type declaration so
+previously we would allow you to put a t here for example and say you could say this element's type is
+is t but we would still know that there is an element here and and we would
+still know the exact size of the tuple sort of so to speak so all tuples always had a static
+layout it's just that you could vary the types of the elements but with but with variatics you can actually create
+holes that can be filled by other tuples and they are variable length in nature so so you could spread in
+nothing or or any number of other elements here and and that happens
+through instantiation of course so so if we for example instantiate foo
+with a tuple of a single element boolean we get string boolean number and if we instantiate with number number
+when we get string number number number and if we instantiate with empty we get string comma number so
+so in a sense this is like tuple concatenation or construction of new
+tuples from other tuple types right
+one of the one of the places where this is useful is that it's now possible to write strongly typed
+functions like let me expand this guy here like a concat function for example that
+concatenates two arrays but but if you model these arrays as tuples
+um or up as as possibly being tuples then if if if at compile time the types
+of the two arguments are tuples then we can actually now compute the final result and so
+you'll see that that spreading two tuples in in an array literal
+will actually generate a tuple of type.t comma.u and so if we concat down here you'll see
+that we end up at compile time knowing that well the the result coming out of this
+cat call is going to be number from a number from a string or and if we then concat that into another
+tuple we could get boolean number number string and so forth now if one argument is a number array for
+example then you'll see that we get a tuple that starts with a boolean and then ends with a
+number array but of course if this was more strongly typed
+[Music] so where we now get four
+numbers then we get a full-on strongly type and of course we could have
+well and now we have the complete exact type so a lot more precision in the in the
+type system here is possible with this feature
+the the corollary of constructing new tuples is using inference to take apart tuples
+um and so here's a last function for example where we declare the argument
+as being well so this function's purpose is to return that return the last element of an array and
+if the array that gets passed in is is known to be a tuple well
+then we can infer to a tuple consisting of something followed by a
+last element u and then we can simply return the type u and say we pass in foo
+42 or true you'll see that the last element gets inferred as boolean here we get number here we get string
+and if we pass in an array you'll see that we just get string or number
+in fact it's kind of interesting that that that the type system now is rich enough that
+that you can express all of the traditional functional functional programming operators like
+head tail init and last if any of you have done any haskell programming in the past you'll you'll know these these
+operators and now you can actually write them in our type system so here you see a you fetch the head of
+a tuple that's the first element the tail those are the remaining elements init is all but the last element and
+last is the last element and that means that it's now possible to write
+functional style algorithms that operate on lists in the type system where the lists are
+represented as as tuples and we'll see other good uses of that
+inferring two tuple types
+one one scenario in particular we support here is the ability to split a tuple type in in the middle here we're
+we're writing a bind function if you think about how bind works you pass it a function and sum arguments and then it returns a
+function that takes the remaining arguments and we can model that by saying the
+arguments of the function that that it takes is a tuple that start that is a
+combination of some first part and some second part and the arguments that get passed are
+the first part and then bind returns a function that
+takes the second part and it that function in turn will invoke
+and spread in both of the parts and you'll note that we inference can
+actually get this correct by inferring an implied arity from this argument here and understand
+where to where to slice the tuple so to speak so here if we have a function that takes
+four arguments and we bind nothing well then we get back a function that also takes four arguments but if we bind
+one argument then we get one that takes three or two or one or none eventually and it's all
+strongly typed now one thing you'll notice here by the way
+is is not only can we slice and dice in this bind function but notice how the
+parameter names are actually preserved in the resulting functions here and
+that's because we traffic names through the inferred tuple and then spread them back in
+in the in the result and that feature has actually been around for a
+while but but
+but it wasn't fully exposed the only way you could get these names was by inferring them from one function and
+then you could spread them into another function so so take an example here of let's say i have a callback function
+that takes some context and then some arguments so i can use this to construct callback functions
+um and so if i want a callback that takes a single string i can i could do it this way and if i want one
+that takes two numbers i can do it this way but but as you'll see there are no argument names to be had here and so we sort of
+have to make some up and of course that's not ideal but if the parameter list
+pass to callback comes ultimately comes from something that was inferred from a function like
+like here for example then you see that we can actually preserve it and the reason we can
+preserve it it used to not be visible but now we're actually making it visible so no
+notice here that we infer a tuple where the elements are named and you can actually
+yourself do that now so so if we look at the calls down here you'll see here we have
+calls where where we don't have argument names but if we if we add
+argument names here like message or x comma y whoops and then look again
+you'll see that now we get parameter names in our in our functions now this this
+these names have no semantic meaning whatsoever whatsoever they purely exist for
+documentation purposes you can't use them when you're accessing the elements you you always access trouble elements
+by indexing by zero one two and and so forth but in cases where you
+spread a topple into an argument list they will be used as the parameter names
+so that's labeled tuple elements also a new feature
+[Music] spreads in array literals here let's
+let's look at this one so when you when you spread tuples into array literals
+we will actually infer and and you use as const then we will infer a variatic tuple type
+so here you see the result of this function is a tuple consisting of one comma dot t comma two et cetera et cetera
+and if you call it we will accordingly infer a a true static type
+and finally the corollary of that is you know allowing you now we have much better
+support for spreading tuples into parameter lists so here we spread a tuple with two elements into
+a function call and that counts as two arguments and then the next one has one element that counts as one argument
+um and so we can satisfy the call in a variety of different ways and we still
+get error checking in in the normal way here for example
+t1 counted as as two arguments here but the function expected at least
+three and so we get an error so that's that's variatic tuple types
+another interesting feature that well so we have class property inference from
+constructors i'm not going to show that right now but it's basically the ability to infer
+uh the type of properties declared in a class without a type annotation we can infer
+their types from control flow analysis of the constructor so we basically see what the constructor
+does and then infer the type accordingly cache type catch clause type annotations is is a
+long-standing request we can we can take a quick look at that one
+um here
+here's here's a catch or here's a try catch the way that
+you would you would write it in in typescript at least be before 4-0 and this this this code has some
+issues because in javascript it's really impossible
+to know what the type of an exception is going to be and therefore we say that that an exception is always typed
+as any and and in the old days any was our only top type and that sort of made
+sense but but of course any allows you to write anything you want here and you you can write things that absolutely
+don't make sense and so this this could actually be a cause of errors
+we now permit you to put a type annotation of course you can you can say any but you can more importantly also
+say unknown which is really the strict and more correct view of what's going on
+here and now you're not permitted to do anything on e unless you first check appropriately so here we we would
+need to really actually ensure that e is an instance of error before we can
+access the message or we would have to ensure that a type of e triple equal string here if we want
+to do two uppercase etcetera etcetera now the thing that's interesting is that
+you can't for example say e colon string here and we will we will
+complain and say the only thing you can write here is any or unknown but now at least you can write
+it we may later introduce a strict mode
+option that requires you to put an annotation or that turns the type into unknown always but but
+certainly it's very easy to construct a lint rule that that that verifies that you always have
+a type annotation here and then that's another class of error that that should be eliminated
+so that is catch clauses
+lots of stuff happened in our tooling as well
+emit declaration files etc i said i'll i'll let you read over this maybe i will just call out a few of
+them one is [Music] type checking speedups in three nine
+um we did a bunch of work to to speed up type checking because we had seen a
+number of regressions in in in versions three five three six seven and eight and and it turned out
+that we didn't really have good test coverage for some of the more advanced type system features used at scale
+and so we sort of went on on a hunt and and and found some of the really big sinners
+when it comes to heavily exercising the type system and in particular projects like material ui and style
+components that we kept seeing regressions in and we we added we first of all found all the hotspots
+and did a series of pull requests to to to speed them up and and this is actually a guy in in
+at microsoft in the in the office group who who saw massive gains in their in
+their compilation simply because we we we do better on those hotspots
+but what we also did was we added then material ui to our performance test suite so that we
+we now have something that will measure or sound alarm bells if if we ever
+if we ever start to regress again in that area and sure enough a couple of weeks ago we had one poll
+request where we were trying to work on on on some functionality in in in
+discriminated unions and all of a sudden the alarm bells
+went off as you can see here and and so so and then of course it turned out that we needed to do a
+little bit of extra work to to to to not set them off but it's i'm happy
+now that we we we have we have better coverage and i i think we we should we should
+actually be able to not see regressions on on on this again and and also we
+managed to to really make compilation faster so i would highly if you have not upgraded yet to three nine or later i
+would i would certainly urge you to do that another feature that that we
+introduced was the the call hierarchy view i don't know if any of you have actually seen that in in action we
+can show it here briefly say i have a bunch of functions i can
+always i could always of course use f12 and shift f12 to navigate and find all all references and so forth but
+but it's hard to sort of see an overall view of who calls who and that's really what what the call
+hierarchy view is about so if i bring up the call hierarchy viewer
+you'll for a frequently call function you'll see that it shows that it's called by caller a and
+caller c and you can click and see where and but then you can also see who calls caller a well
+caller b does and caller b in turn is called from entry point but but entry point also calls caller a and
+called caller c and so so this gives you sort of a a nice hierarchical view of the same
+information that we already have available in in the in the compiler it's just easier to to navigate
+with this feature another interesting feature is partial semantic mode
+[Music] let me bring up some code while i talk about what that's and i'll bring up a
+really large project a vs code project here and i'm just going to helicopter right into the middle of some file in
+in vs code now [Music]
+in in order to do syntactic highlighting in in the in editor
+in vs code will will create a a language service that only analyzes
+the current file so that we can get an ast for the current file and then based syntactic
+highlighting and and and so forth on on on that but in order to answer
+more semantic questions such as statement completion or whatever we really need to know the entire program
+so so if you look at this code here for example we call promise.all
+and then we call then which means that domains is gonna depend on what the all method does with its
+argument and and all comes from promise and in order to figure out what promise means well we sort of have to figure out what are all
+the modules in the program and which one defines promise and that means we need to parse and
+analyze all of the files in your project in order to be able to answer that of course once everything settles
+down i can say domains dot and get statement completion here we know that it's an array of arrays
+and likewise we know for list here because it has a local type annotation but previously and let me try to close
+and then start up again previously there would be a sometimes 15 second lag while we parse
+uh and and and build asts for all of the source files before we could answer
+any questions but now we actually can sort our answer so if we look at list
+dot for example you'll see here that we're able to give you statement completion right away but if you hover over domains you'll see
+that we don't know what its type is yet it is still loading and if i say domains dot i don't get any statement
+completion yet but after a while
+you'll see that all of a sudden the type changes to string array array because now we have completed in a separate
+uh process parsing all of the files and now we actually know
+that the full truth and can give you
+there we go there now i get the full statement
+completion so so what the reason the way we do this is we use this syntactic language service to only
+analyze the current file and then just assume that everything that isn't declared in the current file has type any
+and then we'll show you loading meanwhile and then once everything completes then we give you the the full
+picture so just a a way that we make the tooling more responsive even on very large projects
+another new language feature is deprecated let's try to take a look at
+adap here's a little
+example let's say i i'm now gonna in introduce a new method called
+enlarge by some factor or a number arrow boy and then i want to deprecate the
+supersize function so i can say at deprecated and say
+use enlarge instead
+and you'll note that nice features light up such as striking out deprecated and showing you
+what you should do instead and if you say foo dot you'll see that the enlarged method is here but if i if i hover over supersize
+you'll see hey no go use enlarge instead so i can i can do that nice little feature this
+actually was implemented by a community member so that's that's really that's really great
+um so also lots of new refactorings and and quick
+fixes lots happened in our website and documentation
+this year a revised handbook a new reference for ts config
+lots of translating and then a new implementation of type
+search built also by community member joshua goldberg thank you very much that makes it
+easier to find type declarations so so go check that out
+and that's sort of what happened in the last year but but of course we're not done yet typescript 4-0 is or 4-1 is is on its
+way out i'm going to give you a sneak peek of some of the features well the beta is already out and i'm sure some of you
+have played with it but but let me let me give you a little bit of a view of what's happening in
+in typescript 4-1 again bunch of demos here i'm going to jump right in on
+recursive conditional types
+and let's just look at an example that's probably the easiest way to understand this feature let's say i want to write a type
+that represents the type i get after awaiting a promise now you know
+that that in in typescript promises can can nest which they can't actually in
+the real world but in the type system we can't really keep it from happening so so you can have something like a
+promise a promise a promise of string but really ultimately when you await that you're
+just gonna get a string and and it would be nice to say what is what is the awaited type of a promise
+and and this type reflects that but but by nature it is a recursive it is a recursive guy
+right because here we say if it's null or undefined then just return t otherwise if if t is a promise then infer
+it's t and then await that and keep doing that all the way down this now works in typescript 4.1
+and it all works as you would expect but this feature was not available
+previously if we go to typescript 40 for example you'll see that we get
+circularity errors on on on this type here but the funny thing is
+it actually was possible to write the type using this strange device where where you use index
+access types to index into a an object literal with with choices
+but it was just very ugly yet people were writing types like this in the in the wild and actually writing
+recursive types and then that also meant that we in the compiler ended up doing a
+whole bunch of work to harden the compiler against infinite recursion and stack overflow so
+we put in like recursion depth limiters for instantiation and for constraint reasoning and for type
+relationships and so forth and all of that all of that stuff has really sort of been put in place
+gradually and and and we felt now it really was time to just
+lift the restriction on conditional types themselves and allow them to be written in a recursive manner and so
+that's what we're doing with with typescript 4-1 now
+what can you what else can you do with this well for example you can write the type that
+is returned by array.flat which is a new method on array
+in in in ecmascript that flattens an array and that basically consists of first
+finding the element type of the of the innermost element type of the array where we keep inferring
+uh until it is no longer an array and then that's the type and then the flattened type is an array of that
+innermost type and so here if i flatten a string array array or i flatten one of these guys
+you know we we we can drill in appropriately but it's interesting to see what happens if
+i create an infinitely recurring array and then try to get the element type of
+that and here you'll see our excessively deep error this
+happens after we've gone 50 levels deep and and and it seems to be going badly or in that it's never stopping
+and at that point we we triggered the recursion depth limiter in the compiler and this is part of
+hardening the compiler you know the work that we've done and so we give you an error message here so previously
+things like that could cause the compiler to crash but i think we've we've managed to to chase down most
+of that now here's another example of of for example creating tuples of a
+certain length that's a a request that's been out there for for a long time and it's now possible to just do by writing types
+um here we have a tuple of some element type t repeated n times and we
+implement that by first distributing over n and then saying if if n is a number then just return an
+array otherwise use this recursive worker here that that creates a tuple of t comma n
+starting with an empty tuple and then underbar topple ups says keep iterating until we reach the
+desired length and what we do is if we have the desired length then we're good otherwise
+add another element to the tuple and recurse this is actually a little functional
+programming language if if you look at it and indeed with with recursive conditional types and variatic tuples
+we now have a lot of the elements of pure functional programming languages captured
+in in the type system and that means that you can write inference algorithms in this in this nice little pure
+functional programming language that's that is typescript type system
+and here you get a couple of three elements or because we distribute over unions you get a tuple of zero two or
+four elements or just an array or again trigger the recursion depth limiter if you try to go
+too many times around another example this was almost
+impossible to do previously just a simple operation such as reversing the elements in in a tuple
+that can now be implemented beautifully as a little functional algorithm where we pattern match on if
+it's the empty tuple then it's t otherwise if it matches inferring to a head and a tail then reverse the tail
+and put the head at the end and then otherwise just do nothing and here
+now we have the reverse tumble which is all lovely
+let me close this one out that is a that is recursive are conditional types
+template literal types this is where where things start to get really interesting
+let me first actually set the stage a little bit there's this issue that has been out
+there for four years now where someone asked can we please get the ability to modify
+the property names generated by map types up until now map types have always
+just simply mapped the property names directly and the only thing you could change was the was the type of the properties
+but but there are a lot of patterns in javascript where where
+you know you you create like async versions of of of methods
+or event chain blah blah blah changed events methods that that correspond to all
+of the name properties in an object and so forth and lots of lots of libraries do that
+um and it hasn't been possible to model that in the type system yet there's obviously been a lot of demand
+for it as you can see this is yet again one of these heavily upvoted issues so we decided to
+to go to work on this so that was sort of the the motivator if you will and let me
+show you what what it what it oops what it looks like in in action so
+that the key workhorse really is this thing called template literal types and template
+literal types are in really quite simple it's the ability to create new string literal types from
+existing string literal types so for example here is a type that takes some
+string type parameter and spreads it in to a template literal
+here and basically apps changed to it these template literals here are just the same
+as javascript template literals but the holes where where the holes are expressions in javascript they are
+types in in the type syntax so here you don't put an expression you
+put a type that is constrained to string or number or boolean or
+bigot now then through instantiation we can create
+new string literals so here we pass in foo and we get the string literal food change then if we pass in a
+union it distributes and we get food change bar chains bass change so you can see if this was key of some object now
+we would have all of the change property names just generated for us
+in a sense it's like a little pattern language here because we can express
+things like a a a string literal that starts with top or bottom followed by a dash followed by
+left or right and we will produce the cross product type here so
+this becomes a union top left top right bottom left bottom right you can use it also to
+uh in the type system get the numeric represent or the string representation of a numeric type or a
+boolean or of a bigint so here you see how how those all become strings when
+you when you spread them in and indeed the holes can actually in
+these examples you see here we're dealing with finite types you know unions of some finite set of elements
+but but ultimately we have some types in in typescript some primitive types that are infinite like string
+and number and big end have an infinite number of possible values or at least for all practical
+purposes infinite but we we still do allow you to express that as a
+as a pattern here if you will so this is something that consists of some string followed by dash followed by another string or
+string dash number and here i can assign a hello dash world but if i
+don't have a dash then i'm told that that's not assignable and likewise down here if if this is not
+a number then i get an error
+of course you can make some very big union types this way here's a digit and then here's four digits which
+uh ends up having ten thousand members and ultimately these unions can get too large if i
+if i add one more you will see that we at this point go
+no this is too big we can't represent it and and of course you could speculate about us possibly deferring
+uh the the resolution of types here until until it's necessary and so forth so so
+that may be something that we will experiment with over time but but but at least know now
+that that there are some limits to to to to what what can be done here
+so just like a template does just like tuple types have variation types and you can
+infer to variatic tuple types so can you infer to string templates and that
+becomes and and and that becomes the way that you can decompose string literal types into constituent
+parts for example here is a type that that decomposes
+some some some string literal that starts with open bracket followed by something followed by comma followed by
+something else followed by a closed bracket and then returns those two strings if it succeeds and so
+so here we get one and two or we get foo and bar but here we don't match because there's
+a a beginning blank or here there's not a comma or here we actually do succeed even
+though there's because we have non-greedy matching so so we just match the first comma and
+then the the rest goes into the second
+of course you combine this now with conditional types and you can write little algorithmic types such as a trim that
+gets rid of the blanks on both ends of a of a of a of a string literal like so
+and you can even go crazy and write types like join similar to what exists in in javascript
+where we join up the elements of a tuple with a given separator are
+and here we get 1.2.304 or foo dash bar dash etc etc etc or just a concatenation
+um and this is again done by writing recursive conditional types i'm using
+pattern matching and inference and whatever it's a neat little functional programming language that that exists here for for expressing
+these these things the corollary of join is split you can also write that one
+and we can we can split strings into their constituent parts and here you'll note that if there's
+no delimiter then we have a convention that says when you're inferring to two holes in a row
+then the first hole gets a single character and the second hole gets the rest now so that's
+a bunch of workings here let's look at what it what it looks like in action then we can go back to that
+motivating example that we had open i see a little bit over time but i'm gonna i'm
+gonna finish up here so we want okay
+we wanted to the motivating example was sort of give me the ability to to create all of
+these change methods on on an object and so here's here's the the the combined version of that we
+write a map type that iterates over the keys of t but only the string
+keys of t and then we turn each of those into blah changed and then
+we turn the type into a callback function and now we can make a thing that watches an object here with
+with properties and when we say homer dot you'll see that we have our properties but then we also have our
+events like age change for example and in here we can now get a new age
+arrow and then say
+log of the new age is
+um so this is very real world this this exists in
+number in a number of frameworks and this is one example of how template literal types come in
+come in handy another example is the ability to
+promisify apis if you have an api that uses callbacks but you want to turn it into
+an api that return that uses promises and maybe use a naming pattern where you call all
+of those blah blah blah async here's how you how you do that in a
+few lines of functional type system code and if we if we experiment here and see we have
+our file system with dot open for example that then requires us to supply a callback
+but if we look at the the type that comes out of the combined
+version we now have fsa dot and fsa has all of the same
+open read and close but then it also has async versions of it and open async for example
+you'll see takes a path that returns promise of number and that was actually inferred from the
+callback in the type here and then turned into a promise and so
+forth but you'll also note maybe one thing i'll note here is that we say
+we only promisify things where promisify succeeds so so the the property name we
+use then is blah async but if it doesn't succeed then we use the property name never and that
+causes the property to go away so so you can actually use this to also filter out properties and you'll see
+that fsa here does not have a version async because
+version is just a string and you can't really promising by that
+okay final example is dotted paths which is yet another i'm not gonna i'm
+not gonna go over exactly how these types work i will we'll post all the examples so you can look at them
+elsewhere but but one pattern that is very common in state
+management libraries and or mappers and even lowdash has has helper methods that that work this
+way is you want to have a function get proper set prop where you pass an object and
+then you pass a dotted path to a property
+that was not at all possible to express in typescript before but it actually is now so let's say we have a
+strongly typed object here with a name and an h and then a cars property that's an array of again
+some objects with with with properties and let's say that
+we just request statement completion on this property name you'll see that we can now construct
+all of the possible property names and if we select one of them then we can also take them apart again
+and figure out what is the exact type of of that so cars.0.trobot but
+if we if we pick cars.r1 zero is four and so forth so all of a
+sudden you can get strong typing for these stringly typed apis that previously were
+impossible to to type so that i think is pretty darn cool let me close this
+and almost there let me jump back to what's the presentation here
+um template literal types key mapping we looked at intrinsic
+string types let's just take a quick look at that ah
+these are these are funny types it turns out that when you do this this this property
+remapping it's often necessary to uppercase or lowercase or camel case or snake case or whatever
+your favorite casing convention is change the identifiers around in in some way and ultimately
+you need some utility helpers for that it is technically possible to write
+an uppercase function in the type system itself and a lowercase and capitalized non-capitalized but
+but it would not be very efficient and you'd have to you replicate all of the unicode
+code code classification tables and whatever which is kind of crazy so so instead we have introduced sort of
+this notion of intrinsic types that can be implemented by the compiler but otherwise look just like regular types and so the
+compiler then implements these intrinsics that are now available so you can uppercase
+on something of string literals and you get the uppercase version of it and and here
+you see for example how you would write the on blah blah blah changed where you want to capitalize the property and
+let's say you have event name of foo and you get like on food chains where foo is capitalized and then again you can
+use our nice little functional programming language to write your your your favorite casing using these
+primitives so snake to camel case or snake to pascal case and you see how you can actually now
+map identifiers between all of these different forms which again is super useful because
+there are lots of libraries that that do that and have these conventions that that you want to give strong types
+to okay final new feature in in 4-1
+and this is all coming soon here in november is the no index no unchecked index access compiler
+option you're all familiar i'm sure with the with the strict option which is really
+sort of an amalgam a master switch for a whole bunch of of other additional checks that can be turned on
+all at once and this is actually the mode that we that we recommend that you compile in
+but there are still checks that we could do that probably are even more strict than
+strict we sometimes call them pedantic switches or and then we toyed with having a pedantic
+mode and one example is is accessing a race if you look at
+simple simple code like this i i create an array i initialize it somehow and then i
+access one of his elements should this really be permitted well technically
+we are unable to prove that a sub i will produce a string because the
+initialization of the string array first of all might not have put enough elements in so we would need to
+somehow verify that i is less than the length of the array that can be hard to do and even if we
+have verified that the array might have been a sparse array which is one of these funny features
+that javascript has where arrays can have holes in them so there might still not be a string in the array at that element
+and it turns out that it is effectively impossible to verify that that elements truly do
+exist are and but some people still want us to complain and still want an error here
+and with no with the no unchecked index access compiler option we're
+giving you that capability and basically you are now required to whenever you access an
+array element other than one at a statistic index where the control flow analyzer
+can can understand what's going on you are required to prove that it's not undefined
+or or guard against it with some default value now you might might ask why why couldn't
+i couldn't i just declare my array a string or undefined array and then then i could get the same effect as this
+compiler switch well not really because when you store elements into the array you don't want
+to permit storing undefined so with this feature you are required
+you must always store strings into the array but you get stringer undefined when you read out of
+the array that is what's happening in
+typescript 4.1 and that takes me a little bit late here i'm sorry but takes me to the end
+of my talk i want to say again thanks to all of you for using
+typescript i want to encourage you to keep the contributions coming and to keep the suggestions coming
+on the issue tracker and please vote on these suggestions because that is very much what guides us in in
+deciding what features to to build next and with that i'm gonna i'm gonna yield the floor
+and let others get on with the with the conference here
