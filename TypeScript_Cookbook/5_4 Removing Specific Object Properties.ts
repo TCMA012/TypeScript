@@ -1,6 +1,7 @@
 /*
 5.4. Removing Specific Object Properties
 */
+{
 type Person = {
     name: string;
     age: number;
@@ -63,3 +64,4 @@ type User = {
 }
 
 type SerializeableUser = Remove<User, Function>;
+}
