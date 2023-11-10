@@ -24,6 +24,8 @@ type Events = {
     [x: EventName]: Callback[] | undefined;
 };
 
+
+{
 class EventSystem {
     events: Events;
     constructor() {
@@ -50,3 +52,4 @@ system.defineEventHandler("click", () => {});
 //Argument of type '"click"' is not assignable to parameter of type '`on${string}`'.ts(2345)
 system.defineEventHandler("onClick", () => {});
 system.defineEventHandler("onchange", () => {});
+}

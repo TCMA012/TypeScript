@@ -4,6 +4,7 @@ by Stefan Baumgartner
 https://typescript-cookbook.com/examples/
 6.2. Creating Event Callbacks with String Manipulation Types and Key Remapping
 */
+{
 /*
 1. Define a mapped type by iterating over all keys from T.
 Since we care only about string property keys, we use the intersection
@@ -22,6 +23,13 @@ we make sure this event object contains the original type of our watched object.
 This means when we call onAgeChanged,
 the event object will actually contain a number.
 */
+{
+type WatchedObject<T> = {
+    [K in string & keyof T as `on${K}Changed`]: (
+        ev: Callback<T[K]>
+    ) => void;
+};
+}
 //use the built-in string manipulation types to capitalize string types
 type WatchedObject<T> = {
     [K in string & keyof T as `on${Capitalize<K>}Changed`]: (
@@ -60,25 +68,7 @@ The function itself adds callbacks to the event storage via defineEventHandler.
 need type assertion
 */
 class EventSystem {
-    events: Events;
-    constructor() {
-        this.events = {};
-    }
-
-    defineEventHandler(ev: EventName, cb: Callback): void {
-        this.events[ev] = this.events[ev] ?? [];
-        this.events[ev]?.push(cb);
-    }
-
-    trigger(ev: EventName, value: any) {
-        let callbacks = this.events[ev];
-        if (callbacks) {
-            callbacks.forEach((cb) => {
-                cb({ val: value });
-            });
-        }
-    }
-
+    //...cut for brevity
     watch<T extends object>(obj: T): T & WatchedObject<T> {
         const self = this;
         return new Proxy(obj, {
@@ -96,8 +86,24 @@ class EventSystem {
                 }
                 // (3)
                 return target[property as keyof T];
-            },
+                },
+                //set to be done
+        }) as T & WatchedObject<T>; 
+    }
+}
 
+{
+/*
+1. Set the value. We need to update the object anyway.
+2. Call the trigger function to execute all registered callbacks.
+need type assertion
+*/
+class EventSystem {
+    //...cut for brevity
+    watch<T extends object>(obj: T): T & WatchedObject<T> {
+        const self = this;
+        return new Proxy(obj, {
+            // get from above...
             set(target, property, value) {
                 if (property in target && typeof property === "string") {
                     // (1)
@@ -113,17 +119,11 @@ class EventSystem {
 }
 
 
-/*
-1. Set the value. We need to update the object anyway.
-2. Call the trigger function to execute all registered callbacks.
-need type assertion
-*/
 let person = {
     name: "TC",
     age: 58,
 };
 
-const system = new EventSystem();
 const watchedPerson = system.watch(person);
 
 watchedPerson.onAgeChanged((ev) => {
