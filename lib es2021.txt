@@ -1,0 +1,17 @@
+tsconfig.json lib es2021
+Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.ts(2550)
+
+tsconfig.json. Add "ES2021.String" to lib inside compilerOptions.
+
+{
+    ...,
+    "compilerOptions": {
+        ...,
+        "lib": [
+          ...,
+          "ES2021.String"
+        ]
+    }
+}
+
+copy from Angular
