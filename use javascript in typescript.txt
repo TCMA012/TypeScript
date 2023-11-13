@@ -1,0 +1,6 @@
+How to use javascript in typescript
+Declare your JS for use in your TS
+e.g. if you are going to call a js function anExampleFunction you can simply create a declaration (in a .d.ts file):
+
+declare const anExampleFunction: Function;
+And now you will be able to call the function from TypeScript.
