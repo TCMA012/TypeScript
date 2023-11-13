@@ -1,5 +1,0 @@
-Naked types
-https://hackmd.io/@typescript-complete/ryDjdxH68
-An important precondition to distributive conditional types is that the generic type parameter is a naked type. Naked type is type system jargon and means that the type parameter is present as is, without being part of any other construct.
-
-Being naked is the most common case for generic type parameters, the non naked version can lead to interesting side effects. 
