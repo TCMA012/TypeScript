@@ -10,3 +10,5 @@ Simona Cotin
 manager @angular
 https://cfe.dev/sessions/jamdev2022-localhost-vscode/
 https://github.com/simonaco
+
+https://timjohns.ca/typescripts-hidden-feature-subtypes.html
