@@ -1,1 +1,15 @@
+https://www.typescript-training.com/
+https://www.typescript-training.com/course/fundamentals-v4
+https://www.typescript-training.com/course/fundamentals-v4/08-exercise-json-types/
+https://www.typescript-training.com/course/fundamentals-v4/10-callables/
+https://www.typescript-training.com/course/fundamentals-v4/13-generics/
+https://www.typescript-training.com/course/fundamentals-v4/14-dict-map-filter-reduce/
 
+https://www.typescript-training.com/course/intermediate-v2
+https://www.typescript-training.com/course/intermediate-v2/09-mapped-types/
+
+
+
+https://www.typescript-training.com/course/enterprise-v2
+https://www.typescript-training.com/course/making-typescript-stick
+https://github.com/mike-north/typescript-courses
